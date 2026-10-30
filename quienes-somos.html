@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiénes Somos - Crianza en dos mundos</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+  <div class="pantalla-corporativa">
+    
+    <!-- Botón flotante para regresar al inicio en la misma ventana -->
+    <nav class="accesos-superiores-izquierda">
+      <a href="index.html" class="link-institucional">
+        <img src="images.jpg" alt="Volver">
+        <span>← Volver al inicio</span>
+      </a>
+    </nav>
+
+    <!-- Espacio libre superior para respetar la zona del corazón del fondo -->
+    <div class="espacio-superior-logo"></div>
+
+    <!-- Bloque de contenido traslúcido para la presentación del proyecto -->
+    <main class="contenedor-presentacion">
+      <div class="caja-texto-institucional">
+        <h2>Quiénes Somos</h2>
+        
+        <p>
+          Bienvenido a <strong>Crianza en dos mundos</strong>. Soy mamá de 2. Mi hijo de 9 años autista 
+		  nivel de apoyo 2 y Mi hija de 12 años neurotípica.  Somos un espacio dedicado a acompañar, 
+          orientar y entregar herramientas prácticas en base a la experiencia a familias en el proceso 
+		  de crianza.           
+        </p>
+        
+        <p>
+		  No soy profesional en la materia, pero si soy una mamá que ha pasado de una crisis, ha tener
+		  que calmarme para poder regalar una sonrisa a otro ser que depende de mi, a entender que la
+		  esta crianza no es fácil.  
+        </p>
+      </div>
+    </main>
+
+    <!-- Pie de página fijo idéntico al de tu inicio -->
+    <footer class="bloque-inferior-textos">
+      <h1 class="texto-marca-titulo">Crianza en dos mundos</h1>
+      <p class="texto-marca-eslogan">Mismo amor, dos mundos</p>
+      <p class="texto-marca-red">@dosmundosencasa</p>
+    </footer>
+
+  </div>
+
+  <script>
+    window.onload = function() {
+      document.querySelectorAll('a').forEach(enlace => {
+        enlace.removeAttribute('target');
+      });
+    }
+  </script>
+</body>
+</html>

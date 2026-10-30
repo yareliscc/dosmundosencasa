@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crianza en dos mundos - Inicio</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+  <!-- Contenedor principal que envuelve toda la experiencia visual -->
+  <div class="pantalla-corporativa">
+  
+      <nav class="accesos-superiores-izquierda">
+      <!-- Enlace: Quiénes Somos -->
+      <a href="quienes-somos.html" class="link-institucional">Quienes Somos</a>
+      <a href="objetivos.html" class="link-institucional">Objetivos</a>
+    </nav>
+    <!-- ESPACIO SUPERIOR (Ocupado por la cabecera degradada del fondo) -->
+    <header class="bloque-superior-vacio"></header>
+	<main class="contenedor-accesos">
+		<div class="caja-botones-centro">  
+			<a href="pictograma.html">🖼️ Ir a Historia Social</a>
+			<a href="blog.html">📖 Nuestro Blog</a>
+			<a href="blog.html"> Nuestra Tiendita (EN CONSTRUCCION)</a>   
+
+		</div>
+		<div class="caja-botones-centro">  
+			<a href="historia.html">🖼️ Crea tu Historia Social</a>
+			<a href="blog.html">📖 Escríbenos</a>
+			<a href="blog.html"> Redes Sociales</a>  
+		</div>
+    </main>
+    <footer class="bloque-inferior-textos">
+      <h1 class="texto-marca-titulo">Crianza en dos mundos</h1>
+      <p class="texto-marca-eslogan">Mismo amor, dos mundos</p>
+      <p class="texto-marca-red">@dosmundosencasa</p>
+    </footer>
+  </div>
+  <script>
+    // Asegura que la navegación ocurra en la misma pestaña
+    window.onload = function() {
+      document.querySelectorAll('a').forEach(enlace => {
+        enlace.removeAttribute('target');
+      });
+    }
+  </script>
+</body>
+</html>
+
+ 

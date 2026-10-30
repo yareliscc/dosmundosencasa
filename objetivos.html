@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Objetivos - Crianza en dos mundos</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+  <div class="pantalla-corporativa">
+    
+    <!-- Botón flotante para regresar al inicio (mismo pictograma azul corregido) -->
+    <nav class="accesos-superiores-izquierda">
+      <a href="index.html" class="link-institucional">
+        <img src="images.jpg" alt="Volver al inicio" >
+        <span>Volver al inicio</span>
+      </a>
+    </nav>
+
+    <!-- Espacio libre superior para respetar la zona del corazón del fondo -->
+    <div class="espacio-superior-logo"></div>
+
+    <!-- Bloque de contenido traslúcido para los Objetivos del proyecto -->
+    <main class="contenedor-presentacion">
+      <div class="caja-texto-institucional">
+        <h2>Nuestros Objetivos</h2>
+        
+        <p>
+          En <strong>Crianza en dos mundos</strong> nos proyectamos metas claras para impactar de forma positiva en el desarrollo y bienestar de las familias:
+        </p>
+        
+        <strong>Fomentar la Autonomía:</strong> Facilitar el aprendizaje de rutinas diarias a través de secuencias visuales claras y predecibles.
+        <strong>Apoyar la Neurodiversidad:</strong> Ofrecer herramientas adaptadas que respeten los distintos ritmos de procesamiento y estilos de aprendizaje.
+        <strong>Empoderar a las Familias:</strong> Brindar estrategias de anticipación que reduzcan la ansiedad y fortalezcan el vínculo basados en el respeto mutuo.
+     
+      </div>
+    </main>
+
+    <!-- Pie de página fijo idéntico al de tu inicio y quiénes somos -->
+    <footer class="bloque-inferior-textos">
+      <h1 class="texto-marca-titulo">Crianza en dos mundos</h1>
+      <p class="texto-marca-eslogan">Mismo amor, dos mundos</p>
+      <p class="texto-marca-red">@dosmundosencasa</p>
+    </footer>
+
+  </div>
+
+  <script>
+    window.onload = function() {
+      document.querySelectorAll('a').forEach(enlace => {
+        enlace.removeAttribute('target');
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuestro Blog - Crianza en dos mundos</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+  <div class="pantalla-corporativa">
+    
+    <!-- Botón flotante para regresar al inicio -->
+    <nav class="accesos-superiores-izquierda">
+      <a href="index.html" >
+        <img src="images.jpg" alt="Volver al inicio" >
+        <span>Volver al inicio</span>
+      </a>
+    </nav>
+
+    <!-- Espacio libre superior para respetar la zona del corazón del fondo -->
+    <div class="espacio-superior-logo"></div>
+
+    <!-- Bloque de contenido traslúcido para el Blog -->
+    <main class="contenedor-presentacion-blog">
+      <div class="caja-texto-institucional">
+        <h2>Nuestro Blog</h2>
+		
+        <!-- ARTÍCULO 1 (Interactivo) -->
+        <details class="articulo-desplegable">
+          <summary>📌 ¿Qué es Criar en dos mundos?</summary>
+          <div class="contenido-articulo">
+            <p class="post-fecha">Publicado recientemente</p>
+            <p>
+              Es tener dos hijos en casa, uno neurotípico y otro autista, dos formas de crianza conviviendo
+			  en el mismo hogar, una crianza realmente intensa, a la que nadie te prepara. Paso de una crisis
+			  sensorial a ayudar con tareas en minutos.			  
+			  </p>
+			  <p>
+			  No es Compararlos, ni tratarlos diferentes. No es tener un hijo favorito ni mucho menos esperar 
+			  que mi hija neurotipica se tenga que adaptar a su hermano; la crianza en dos mundos es tener que
+			  ser traductor entre ellos, dar a cada uno lo que necesite, celebrar dos tipos de logros,
+			  multiplicar el amor y no dividirlo, porque mi amor y paciencia es el territorio donde ambos mundos
+			  pueden existir sin chocarse.
+			    </p>
+			  <p>
+								Mismo amor, dos mundos...
+            </p>
+          </div>
+        </details>        
+
+        <!-- ARTÍCULO 2 (Interactivo) -->
+        <details class="articulo-desplegable">
+          <summary>📌 La importancia de la anticipación</summary>
+          <div class="contenido-articulo">
+            <p class="post-fecha">Publicado recientemente</p>
+            <p>
+			  Hace 5 años mi hijo, era un niño totalmente desregulado, y muy ancioso. Cuando fue diagnosticado
+			  como toda madre neurodivergente busqué mucha información para poder entender la forma de ver la
+			  vida de mi hijo, y entendí que ANTICIPAR es AMAR.
+			  </p> 
+<p>			  
+              Aprendí a anticipar las actividades diarias de mi hijo, lo que nos permitió conectar y así brindarle 
+			  seguridad a mis hijos. Ya que el uso de historias sociales o apoyos visuales nos permitió estructurar 
+			  el día de forma predecible y clara, y asi reducir el estrés y la ansiedad que se hace presente cuando
+			  algo nuevo es desconocido.
+			  </p>  
+			  <p>
+			  Lo usamos, no con la misma frecuencia de antes, porque mi hijo ahora tiene casi 9 años, pero cuando 
+			  observamos los signos de antes reccurrimos a este gran apoyo. Lo que nos permite reducir las crisis
+			  si redurcirlas, porque hay cosas que se salen de nuestras manos, pero a pesar de esto nos ha ayudado
+			  muchisimo, cuando vamos a vivir una nueva experiencia en casa. 
+            </p>
+          </div>
+        </details>
+
+        <!-- ARTÍCULO 3 (Interactivo) -->
+        <details class="articulo-desplegable">
+          <summary>📌 Cómo introducir pictogramas en las rutinas diarias</summary>
+          <div class="contenido-articulo">
+            <p class="post-fecha">Publicado recientemente</p>
+            <p>
+              Pasos simples como por ejemplo, lavarse las manos o cepillarse los dientes se vuelven más autónomos 
+			  cuando desglosamos la secuencia paso a paso , en pequeñas imágenes.  
+			  </p>
+			  <p>
+			  Es clave colocar los apoyos a la altura del niño.
+            </p>
+          </div>
+        </details>
+
+      </div>
+    </main>
+
+    <!-- Pie de página fijo idéntico al de todo tu sitio web -->
+    <footer class="bloque-inferior-textos">
+      <h1 class="texto-marca-titulo">Crianza en dos mundos</h1>
+      <p class="texto-marca-eslogan">Mismo amor, dos mundos</p>
+      <p class="texto-marca-red">@dosmundosencasa</p>
+    </footer>
+
+  </div>
+
+  <script>
+    window.onload = function() {
+      document.querySelectorAll('a').forEach(enlace => {
+        enlace.removeAttribute('target');
+      });
+    }
+  </script>
+</body>
+</html>
