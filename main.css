@@ -7,6 +7,7 @@ body {
   background: linear-gradient(45deg, #ffb3b3, #ffd1b3, #fff0b3, #b3ffb3, #b3d9ff, #d9b3ff);
   background-size: 300% 300%;
   animation: arcoiris-suave 20s ease infinite;
+       
 }
 
 @keyframes arcoiris-suave {
@@ -22,6 +23,7 @@ h1 { font-size: 2em; margin-bottom: 5px; color: #2c3e50; }
 .contenedor-combo {
   max-width: 500px;
   margin: 0 auto 25px auto;
+  margin-top: 100px;
   background: rgba(255, 255, 255, 0.7);
   padding: 15px;
   border-radius: 12px;
@@ -178,7 +180,7 @@ button:hover { background-color: #95a5a6; }
 
 /* Título principal de la marca (más oscuro y estilizado) */
 .titulo-marca {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	 font-family: Arial, sans-serif;
   font-size: 2.8em;
   font-weight: 600; /* Peso semi-bold para que no se vea tosco */
   color: #2b2b2b;   /* Gris casi negro idéntico al de la imagen */
@@ -239,7 +241,7 @@ html, body {
 /* --- CONTENEDOR DE ENLACES MEJORADOS --- */
 .contenedor-accesos {
   position: absolute;
-  top: 50%; /* Si quieres que baje un poco más, cámbialo a 52% o 54% */
+  top: 60%; /* Si quieres que baje un poco más, cámbialo a 52% o 54% */
   left: 50%;
   transform: translate(-50%, -50%); /* Centrado matemático absoluto */
   display: flex;
@@ -254,10 +256,17 @@ html, body {
   flex-direction: column;
   gap: 15px;
   background: rgba(255, 255, 255, 0.85); /* Fondo blanco traslúcido para legibilidad */
-  padding: 15px 30px;
+  padding: 20px 30px;
   border-radius: 24px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.5);
+}
+.caja-botones-frase {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 15px 15px;
+  border-radius: 24px;
 }
 
 /* Estilos de botones individuales */
@@ -428,56 +437,240 @@ html, body {
   margin-bottom: 10px;
   font-style: italic;
 }
-    /* Estilos específicos para hacer los artículos desplegables */
-    .articulo-desplegable {
-      margin-bottom: 15px;
-      padding-bottom: 15px;
-      border-bottom: 1px dashed #bdc3c7;
-    }
+/* Estilos específicos para hacer los artículos desplegables */
+.articulo-desplegable {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed #bdc3c7;
+}
     
-    .articulo-desplegable:last-of-type {
-      border-bottom: none;
-      margin-bottom: 0;
-      padding-bottom: 0;
-    }
+.articulo-desplegable:last-of-type {
+   border-bottom: none;
+   margin-bottom: 0;
+   padding-bottom: 0;
+}
 
-    /* El título que sirve de botón */
-    .articulo-desplegable summary {
-      font-size: 1.25em;
-      font-weight: bold;
-      color: #2b2b2b;
-      cursor: pointer;
-      list-style: none; /* Oculta la flecha nativa en algunos navegadores */
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      user-select: none;
-      padding: 5px 0;
-    }
+/* El título que sirve de botón */
+.articulo-desplegable summary {
+   font-size: 1.25em;
+   font-weight: bold;
+   color: #2b2b2b;
+   cursor: pointer;
+   list-style: none; /* Oculta la flecha nativa en algunos navegadores */
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   user-select: none;
+   padding: 5px 0;
+}
 
-    /* Pequeño indicador visual a la derecha del título */
-    .articulo-desplegable summary::after {
-      content: "➕";
-      font-size: 0.8em;
-      transition: transform 0.2s;
-    }
+/* Pequeño indicador visual a la derecha del título */
+.articulo-desplegable summary::after {
+   content: "➕";
+   font-size: 0.8em;
+   transition: transform 0.2s;
+}
 
-    /* Cambia el icono cuando el artículo está abierto */
-    .articulo-desplegable[open] summary::after {
-      content: "➖";
-    }
+/* Cambia el icono cuando el artículo está abierto */
+.articulo-desplegable[open] summary::after {
+   content: "➖";
+}
 
-    .articulo-desplegable summary:hover {
-      color: #8e1c6a; /* Tu morado de marca al pasar el mouse */
-    }
+.articulo-desplegable summary:hover {
+   color: #8e1c6a; /* Tu morado de marca al pasar el mouse */
+}
 
-    /* Contenedor del texto de adentro */
-    .contenido-articulo {
-      margin-top: 12px;
-      animation: aparecerSuave 0.3s ease-out;
-    }
+/* Contenedor del texto de adentro */
+.contenido-articulo {
+   margin-top: 12px;
+   animation: aparecerSuave 0.3s ease-out;
+}
 
-    @keyframes aparecerSuave {
-      from { opacity: 0; transform: translateY(-5px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+@keyframes aparecerSuave {
+   from { opacity: 0; transform: translateY(-5px); }
+   to { opacity: 1; transform: translateY(0); }
+}
+
+.tarjeta-redes {
+   background-color: white;
+   padding: 30px;
+   border-radius: 20px;
+   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+   text-align: center;
+   width: 90%;
+   max-width: 350px;
+}
+h2 {
+ color: #333;
+ margin-bottom: 20px;
+ font-size: 1.4rem;
+}
+.btn-red {
+  display: block;
+  color: #1a0dab; /* El azul clásico de tus enlaces actuales */
+  text-decoration: underline;
+  font-size: 1.1rem;
+  margin: 15px 0;
+  padding: 10px;
+}
+.btn-volver {
+   display: inline-block;
+   margin-top: 20px;
+   color: #666;
+   text-decoration: none;
+   font-size: 0.9rem;
+}
+
+.btn-volver:hover {
+   text-decoration: underline;
+}
+
+.enlace-social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fafafa;
+  border: 1px solid #eaeaea;
+  border-radius: 12px;
+  padding: 12px;
+  margin: 15px 0;			
+  text-decoration: none;
+  color: #1a0dab; 
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+ .enlace-social:hover {
+    transform: translateY(-2px);
+    background-color: #f0f0f5;
+ }
+
+/* Estilos asignados para los logos de FontAwesome */
+.enlace-social i {
+   font-size: 24px;
+   margin-right: 12px;
+}
+}
+/* Colores oficiales de marca para cada red */
+.fa-instagram { color: #e1306c; }
+.fa-facebook { color: #1877f2; }
+.fa-envelope { color: #ea4335; }
+		
+.menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff; /* Fondo blanco */
+    color: #333333; /* Texto oscuro elegante, puedes cambiarlo por tu azul si prefieres */
+    text-decoration: none; /* Quita el subrayado azul */
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 12px ;
+    margin-top: 12px 0;
+    border: 1px solid #eaeaea; /* Borde suave */
+    border-radius: 12px; /* Esquinas redondeadas */
+    gap: 15px; /* Espacio entre el icono y el texto */
+    transition: all 0.3s ease; /* Hace que el efecto sea suave */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+}
+
+/* Efecto interactivo al pasar el mouse (:hover) */
+.menu-btn:hover {
+    transform: translateY(-2px); /* Eleva el botón sutilmente */
+    background-color: #f7f7fc; /* Cambia el fondo a un tono gris/azul muy suave */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08); /* Aumenta la sombra */
+    border-color: #d1d1d1;
+}
+
+/* Asegura que las imágenes de los iconos queden alineadas y del tamaño correcto */
+.menu-btn img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+}
+
+/* Contenedor principal del carrusel */
+.carrusel-contenedor {
+    width: 100%;
+    max-width: 500px; /* Tamaño máximo en pantalla */
+    margin: 10px auto;
+    overflow: hidden; /* Oculta las imágenes que están fuera de foco */
+    border-radius: 20px; /* Bordes redondeados que combinan con tus tarjetas */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+}
+
+/* Fila interna que se mueve de lado a lado */
+.carrusel-diapositivas {
+    display: flex;
+    width: 400%; /* Ajusta según el número de imágenes (4 imágenes = 400%) */
+    animation: deslizar 16s infinite ease-in-out; /* Velocidad del carrusel */
+}
+
+/* Estilo para cada imagen individual */
+.carrusel-diapositivas img {
+    width: 25%; /* Cada imagen ocupa 1/4 del contenedor completo */
+    height: 200px; /* Altura fija ajustable */
+    object-fit: cover; /* Evita que las imágenes se deformen */
+}
+
+/* Animación que desliza las fotos de forma automática */
+@keyframes deslizar {
+    0% { margin-left: 0%; }
+    20% { margin-left: 0%; }
+    25% { margin-left: -100%; } /* Pasa a la segunda imagen */
+    45% { margin-left: -100%; }
+    50% { margin-left: -200%; } /* Pasa a la tercera imagen */
+    70% { margin-left: -200%; }
+    75% { margin-left: -300%; } /* Pasa a la cuarta imagen */
+    95% { margin-left: -300%; }
+    100% { margin-left: 0%; }   /* Vuelve al inicio */
+}
+/* Animación para desvanecer y rotar los testimonios */
+.testimonio-wrapper {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 70px; /* Altura controlada para que no mueva el diseño inferior */
+    overflow: hidden;
+}
+
+.testimonio-item {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    animation: rotarTestimonios 8s infinite ease-in-out;
+}
+
+/* Tiempos de aparición para cada uno de los 3 comentarios */
+.testimonio-item:nth-child(1) { animation-delay: 0s; }
+.testimonio-item:nth-child(2) { animation-delay: 5s; }
+.testimonio-item:nth-child(3) { animation-delay: 10s; }
+
+@keyframes rotarTestimonios {
+    0%, 5% { opacity: 0; transform: translateY(10px); }
+    10%, 28% { opacity: 1; transform: translateY(0); }
+    33%, 100% { opacity: 0; transform: translateY(-10px); }
+}
+.familia{
+	"background: #ffffff; max-width: 430px; margin: 15px auto 20px; padding: 15px 25px; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.04); text-align: center; border: 1px solid #f0f0f5;
+}
+.titulo-seccion{
+	color: #333333; margin-top: 0; margin-bottom: 30px; font-size: 1.10rem; font-weight: bold; letter-spacing: -0.3px;
+}
+.autor{
+	color: #1a0dab; font-weight: bold; font-size: 0.85rem;
+}
+.testimonio{
+	font-style: italic; color: #555555; font-size: 0.95rem; line-height: 1.5; margin: 0 0 8px 0;
+}
+
+.frase-motivo{
+	max-width: 600px; margin: 50px auto; text-align: center; padding: 0 20px;
+}
+.mi-frase{
+	font-size: 1.2rem; color: #555; line-height: 1.6; font-weight: 300;">
+}
+.frase-final{
+	width: 40px; height: 2px; background: #e1306c; margin: 15px auto 0;
+}

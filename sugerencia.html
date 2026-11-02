@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Objetivos - Crianza en dos mundos</title>
+  <link rel="stylesheet" href="main1.css" href="main.css">
+</head>
+<body>
+
+  <div class="pantalla-corporativa">
+    
+    <!-- Botón flotante para regresar al inicio (mismo pictograma azul corregido) -->
+    <nav class="accesos-superiores-izquierda">
+      <a href="index.html" class="link-institucional">
+        <img src="images.jpg" alt="Volver al inicio" >
+        <span>Volver al inicio</span>
+      </a>
+    </nav>
+
+   <div class="container">
+        <!-- Tarjeta de Información Izquierda -->
+        <div class="info-section">
+            <div>
+                <h2 class="info-title">Información de contacto</h2>
+                <p class="info-text">Ponte en contacto con nosotros. Puedes rellenar el formulario o escribirnos directamente a través de nuestros canales oficiales.</p>
+            </div>
+            
+            <div class="contact-details">
+                <p>📍 Santiago, Chile</p>
+                <p>✉️ crianzaendosmundos@gmail.com</p>
+            </div>
+        </div>
+
+        <!-- Formulario Derecho -->
+        <div class="form-section">
+            <h2 class="form-title">Envíanos un mensaje</h2>
+            <form action="https://formspree.io/f/mrppoaoj" method="POST">
+                <div class="form-group">
+                    <label for="nombre">Nombre Completo</label>
+                    <input type="text" id="nombre" name="name" placeholder="Tu nombre" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="correo">Correo Electrónico</label>
+                    <input type="email" id="correo" name="email" placeholder="ejemplo@correo.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="mensaje">Mensaje</label>
+                    <textarea id="mensaje" name="message" placeholder="¿En qué te podemos ayudar?" required></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">Enviar Mensaje</button>
+            </form>
+        </div>
+    </main>
+
+    <!-- Pie de página fijo idéntico al de tu inicio y quiénes somos -->
+    <footer class="bloque-inferior-textos">
+      <h1 class="texto-marca-titulo">Crianza en dos mundos &copy; 2026</h1>
+      <p class="texto-marca-eslogan">Mismo amor, dos mundos</p>
+      <p class="texto-marca-red">@dosmundosencasa</p>
+    </footer>
+
+  </div>
+
+  <script>
+    window.onload = function() {
+      document.querySelectorAll('a').forEach(enlace => {
+        enlace.removeAttribute('target');
+      });
+    }
+	
+	document.getElementById('contactForm').addEventListener('submit', function(event) {
+        // 1. Evitamos que la página se recargue o se vaya a la web de Formspree
+        event.preventDefault(); 
+        
+        const form = this;
+        const button = form.querySelector('.btn-submit');
+        const originalButtonText = button.textContent;
+        
+        // 2. Cambiamos el texto del botón temporalmente para dar feedback visual
+        button.textContent = "Enviando...";
+        button.disabled = true;
+
+        // 3. Enviamos los datos del formulario de forma silenciosa en segundo plano
+        fetch(form.action, {
+            method: form.method,
+            body: new FormData(form),
+            headers: {
+                'Accept': 'application/json'
+            }
+        }).then(response => {
+            if (response.ok) {
+                // 4. SI EL ENVÍO ES EXITOSO: Limpiamos por completo el formulario
+                form.reset();
+                alert("¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.");
+            } else {
+                alert("Hubo un problema al enviar tu mensaje. Por favor, inténtalo de nuevo.");
+            }
+        }).catch(error => {
+            alert("Error de conexión. Revisa tu internet e inténtalo de nuevo.");
+        }).finally(() => {
+            // 5. Devolvemos el botón a su estado original
+            button.textContent = originalButtonText;
+            button.disabled = false;
+        });
+    });
+  </script>
+</body>
+</html>
