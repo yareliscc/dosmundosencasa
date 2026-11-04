@@ -1,0 +1,386 @@
+/* --- ESTILOS GENERALES Y FONDO --- */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 10px;
+  background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 50%, #f6d365 100%);
+  background-attachment: fixed;
+  color: #2c3e50;
+}
+
+/* --- CABECERA Y TÍTULO UNIFICADO A 500PX --- */
+.contenedor-cabecera {
+  max-width: 500px;
+  width: 95%;
+  margin: 20px auto 10px auto;
+  background: white;
+  padding: 15px 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  position: relative; 
+  box-sizing: border-box;
+}
+.boton-volver {
+  position: absolute; 
+  left: 15px;
+}
+.boton-volver a {
+  text-decoration: none;
+  color: #2c3e50;
+  font-size: 0.85em;
+  background: #f1f2f6;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+.titulo-principal, .caja-botones-centro {
+  max-width: 500px;
+  width: 95%;
+  margin: 10px auto;
+  font-size: 1.5em;
+  color: #2c3e50;
+  font-weight: bold;
+  text-align: center;
+}
+p.caja-botones-centro {
+  font-size: 0.95em;
+  color: #57606f;
+  font-weight: normal;
+  margin-bottom: 20px;
+}
+
+/* --- COMBO DE SELECCIÓN (ARRIBA) --- */
+.contenedor-combo {
+  max-width: 500px;
+  margin: 20px auto;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+}
+.contenedor-combo label {
+  font-weight: bold;
+  margin-bottom: 12px;
+  display: block;
+  color: #2c3e50;
+  font-size: 1.05em;
+  text-align: left;
+}
+select {
+  width: 100%;
+  padding: 12px;
+  font-size: 1em;
+  border: 1px solid #dcdde1;
+  border-radius: 8px;
+  outline: none;
+  background: white;
+  color: #2c3e50;
+  cursor: pointer;
+}
+
+/* --- SECCIÓN HISTORIA (TARJETA BLANCA) --- */
+.seccion-historia {
+  max-width: 500px;
+  margin: 15px auto;
+  background: rgba(255, 255, 255, 0.9) radial-gradient(circle, rgba(233,30,99,0.1) 0%, rgba(255,255,255,0) 70%);
+  padding: 25px;
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  box-sizing: border-box;
+}
+.seccion-historia h3 {
+  font-size: 1.4em;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 5px;
+  margin-bottom: 25px;
+  font-weight: bold;
+}
+
+/* Botón Guardar/Imprimir */
+.btn-group {
+  margin-bottom: 25px;
+  text-align: left;
+}
+.btn-print {
+  width: auto;
+  background-color: #007bff;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1em;
+}
+.btn-print:hover { background-color: #0069d9; }
+
+/* Explicación / Guía */
+.contenedor-explicacion {
+  text-align: left;
+  margin-bottom: 25px;
+}
+.contenedor-explicacion label {
+  font-weight: bold;
+  margin-bottom: 10px;
+  display: block;
+  color: #2c3e50;
+}
+textarea {
+  width: 100%;
+  height: 90px;
+  padding: 12px;
+  font-size: 0.95em;
+  font-family: Arial, sans-serif;
+  border: 1px solid #bdc3c7;
+  border-radius: 8px;
+  resize: none;
+  outline: none;
+  box-sizing: border-box;
+  background: white;
+  color: #7f8c8d;
+}
+
+/* --- ÁREA DEL VISUALIZADOR DE PICTOGRAMAS --- */
+.historia-flujo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 240px; 
+  border: 2px dashed #bdc3c7;
+  border-radius: 12px;
+  padding: 20px;
+  background: rgba(255,255,255,0.5);
+  box-sizing: border-box;
+}
+.placeholder-flujo {
+  color: #95a5a6;
+  text-align: center;
+  font-size: 0.95em;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Tarjeta del pictograma individual */
+.paso-historia {
+  width: 180px;
+  padding: 15px;
+  border-radius: 20px;
+  background: white;
+  box-shadow: 0 6px 20px rgba(0,0,0,.08);
+  transition: .3s;
+  text-align: center;
+  border: 1px solid #eaeded;
+  animation: fadeIn 0.35s ease;
+  box-sizing: border-box;
+}
+.paso-historia:hover {
+  transform: translateY(-4px);
+}
+.paso-historia img {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+.paso-historia p {
+  margin: 5px 0 0 0;
+  font-size: 1em;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+/* GESTIÓN DE PANTALLA: Oculta de forma absoluta las tarjetas inactivas en la web */
+.paso-historia.ocultar-en-pantalla {
+  display: none !important;
+}
+
+/* --- BOTONES DE NAVEGACIÓN --- */
+.controles-navegacion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  margin-bottom: 25px;
+  padding: 0 5px;
+}
+.btn-nav {
+  background-color: #ffffff;
+  color: #2c3e50;
+  border: 2px solid #dcdde1;
+  padding: 10px 16px;
+  font-size: 0.9em;
+  font-weight: bold;
+  border-radius: 30px; 
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.btn-nav:hover {
+  background-color: #2c3e50;
+  color: white;
+  border-color: #2c3e50;
+}
+.btn-nav:disabled {
+  background-color: #f1f2f6;
+  color: #ced6e0;
+  border-color: #f1f2f6;
+  cursor: not-allowed;
+}
+.indicador-pasos {
+  font-size: 0.95em;
+  font-weight: bold;
+  color: #7f8c8d;
+  background: rgba(255, 255, 255, 0.5);
+  padding: 6px 14px;
+  border-radius: 20px;
+}
+
+/* Botón limpiar inferior */
+.btn-limpiar {
+  background-color: #7f8c8d;
+  color: white;
+  padding: 12px 30px;
+  font-size: 1em;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.btn-limpiar:hover { background-color: #95a5a6; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ==========================================================================
+   3. REGLAS EXCLUSIVAS PARA IMPRESIÓN (FUERZA LA TIRA COMPLETA EN HOJA)
+   ========================================================================== */
+@media print {
+  body {
+    background: white !important;
+    color: black;
+    margin: 0;
+    padding: 0;
+  }
+  .accesos-superiores-izquierda, .caja-botones-centro, p.caja-botones-centro, 
+  .contenedor-combo, .btn-group, .btn-limpiar, .seccion-historia h3, .controles-navegacion {
+    display: none !important;
+  }
+  #explicacion-texto {
+    border: none !important;
+    resize: none;
+    background: transparent;
+    padding: 0;
+    font-size: 16px;
+    color: black;
+  }
+  /* Anulamos la ocultación en la impresora para que salgan todas */
+  .paso-historia.ocultar-en-pantalla {
+    display: block !important;
+  }
+  .historia-flujo {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 15px;
+    justify-content: center;
+    border: none !important;
+    background: none !important;
+  }
+  .paso-historia {
+    width: 120px !important;
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
+    transform: none !important;
+  }
+  .paso-historia img {
+    width: 100px !important;
+    height: 100px !important;
+  }
+}
+/* --- INDICADOR VISUAL DE SECUENCIA (NÚMERO) --- */
+.numero-secuencia {
+  position: absolute;
+  top: -12px;
+  left: -12px;
+  background-color: #2c3e50; /* Gris oscuro elegante */
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 14px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+  z-index: 5;
+}
+
+/* --- BOTÓN DE AUDIO FLOTANTE (ALTAVOZ) --- */
+.btn-audio-pictograma {
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  background-color: #007bff; /* Azul vibrante */
+  color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+  z-index: 10;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+/* Efectos interactivos para el botón de audio */
+.btn-audio-pictograma:hover {
+  background-color: #0056b3;
+  transform: scale(1.1);
+}
+.btn-audio-pictograma:active {
+  transform: scale(0.95);
+}
+
+/* Cursor de mano al pasar por la imagen para indicar que es clickeable */
+.paso-historia img {
+  cursor: pointer;
+}
+
+/* --- REGLA EXCLUSIVA PARA IMPRESIÓN --- */
+@media print {
+  /* Oculta por completo los botones de audio flotantes en las hojas de papel o PDF */
+  .btn-audio-pictograma {
+    display: none !important;
+  }
+}
+.barra-progreso{
+    height:10px;
+    background:#ececec;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.progreso{
+ height: 100%;
+  width: 0%; /* Inicia en 0% y el JS la incrementa */
+  background: linear-gradient(90deg, #2ecc71, #27ae60); /* Degradado verde amigable */
+  border-radius: 4px;
+  transition: width 0.3s ease-in-out; /* Animación suave al cambiar de paso */
+}
+/* --- REGLA EXCLUSIVA PARA IMPRESIÓN --- */
+@media print {
+  /* Oculta por completo la barra de progreso en el papel o documento PDF */
+  .barra-progreso {
+    display: none !important;
+  }
+}

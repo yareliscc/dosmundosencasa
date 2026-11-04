@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Creador Automático de Historias Sociales</title>
   <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="pictograma.css">
 </head>
 <body>
 	<div class="pantalla-corporativa">
@@ -54,33 +55,44 @@
 			<option value="dormir">👕 Rutina para ir a dormir</option>--!>
 		</select>
 	</div>
-	<!-- ESPACIO DE LA HISTORIA GENERADA -->
+		 ESPACIO DE LA HISTORIA GENERADA -->
 	<div class="seccion-historia">
-		<h3>Ficha de la Historia Social</h3>   
-		<!-- Área dinámica que muestra la historia en pantalla y se activa al imprimir -->
+		<h3>Ficha de la Historia Social</h3>   		
+		<!-- Área dinámica de impresión -->
 		<div id="storyDisplay" class="story-display">
 			<h2 id="storyTitle"></h2>
 			<ul id="storySteps"></ul>
-		</div>		
+		</div>	
 		<!-- Boton de acción -->
 		<div class="btn-group" data-html2canvas-ignore="true">
 			<button class="btn-print" onclick="imprimirRutina()">Guardar/Imprimir</button>
 		</div>
 		<div class="contenedor-explicacion">
 			<label for="explicacion-texto"><strong>Explicación / Guía de la Historia:</strong></label>
-			<textarea id="explicacion-texto" placeholder="Selecciona una historia del menú de arriba para ver su explicación..."></textarea>
+			<textarea id="explicacion-texto" placeholder="Selecciona una historia del menú de arriba para ver su explicación..." readonly></textarea>
 		</div>
-		<div class="historia-flujo" id="caja-historia">
-			<p style="color: #95a5a6;" id="texto-vacio">Elige una rutina en el menú de arriba para generar la secuencia visual...</p>
-		</div>    
-		<button onclick="reiniciarPantalla()">Limpiar Todo 🔄</button>
-	</div>
-	</div>
+
+        <!-- Recuadro para la secuencia visual -->
+        <div class="historia-flujo" id="contenedor-flujo">
+          <p class="placeholder-flujo">Elige una rutina en el menú de arriba para generar la secuencia visual...</p>
+        </div>
 
 
+        <!-- BOTONES DE NAVEGACIÓN ASOCIADOS A TUS ONCLICK NATIVOS -->
+        <div class="controles-navegacion" id="controles-historia" style="display: none; justify-content: space-between; align-items: center; margin-top: 15px; margin-bottom: 15px;">
+          <button class="btn-nav" id="btn-anterior" onclick="cambiarPaso(-1)">◀ Anterior</button>
+          <span class="indicador-pasos" id="contador-pasos">Paso 1 de X</span>
+          <button class="btn-nav" id="btn-siguiente" onclick="cambiarPaso(1)">Siguiente ▶</button>
+        </div>
+        		<div class="barra-progreso">
+    		<div class="progreso"></div>
+		</div>
+		<button class="btn-limpiar" onclick="reiniciarPantalla()">Limpiar Todo 🔄</button>
+
+	</div>
   <script>
     // Base de datos de historias predefinidas (IDs reales de pictogramas de ARASAAC)
-    const baseHistorias = {
+   const baseHistorias = {
       manos: {
         explicacion: "Esta historia social guia en la limpieza de nuestras manos .",
         pasos: [
@@ -231,61 +243,137 @@
       }
     };
 
-	function cargarHistoriaAutomatica() {
-	const seleccion = document.getElementById('selector-historia').value;
-	const campoTexto = document.getElementById('explicacion-texto');
-	const cajaFlujo = document.getElementById('caja-historia');
+    let pasosActuales = [];
+    let indiceActivo = 0;
 
-	// Si selecciona la opción vacía o inválida, limpiamos la pantalla
-	if (!seleccion || !baseHistorias[seleccion]) {
-		reiniciarPantalla();
-		return;
-	}
-
-	const datosHistoria = baseHistorias[seleccion];
-
-	// 1. Colocamos la explicación correspondiente en el cuadro de texto
-	campoTexto.value = datosHistoria.explicacion;
-
-	// 2. Generamos las tarjetas de los pictogramas
-	let htmlPasos = "";
-	datosHistoria.pasos.forEach(paso => {
-    // URL verificada y estructurada correctamente con template literals de JS
-    const urlImagen = "https://static.arasaac.org/pictograms/" + paso.id + "/" + paso.id + "_500.png";
-    
-    htmlPasos += `
-    <div class="paso-historia" style="display: inline-block; text-align: center; margin: 15px; padding: 10px; border: 1px solid #ddd; border-radius: 8px; background-color: #fff;">
-    <img src="${urlImagen}" alt="${paso.palabra}" style="width: 150px; height: 150px; display: block; margin: 0 auto 10px auto; object-fit: contain;">
-    <span style="font-family: Arial, sans-serif; font-weight: bold; font-size: 14px; color: #2c3e50;">${paso.palabra.toUpperCase()}</span>
-    </div>
-    `;
-	});
-
-	// 3. Pintamos las imágenes y textos en el contenedor de flujo
-	cajaFlujo.innerHTML = htmlPasos;
-	}
-
-    function reiniciarPantalla() {
-      document.getElementById('selector-historia').value = "";
-      document.getElementById('explicacion-texto').value = "";
-      document.getElementById('caja-historia').innerHTML = `
-        <p style="color: #95a5a6;" id="texto-vacio">Elige una rutina en el menú de arriba para generar la secuencia visual...</p>
-      `;
-    }
-
-
-	function imprimirRutina() {
+   // Referencias directas al DOM
     const selector = document.getElementById('selector-historia');
-    if (!selector.value) {
-        alert("Por favor, selecciona una historia social antes de imprimir.");
-        return;
+    const txtExplicacion = document.getElementById('explicacion-texto');
+    const contenedorFlujo = document.getElementById('contenedor-flujo');
+    const controlesHistoria = document.getElementById('controles-historia');
+    const btnAnterior = document.getElementById('btn-anterior');
+    const btnSiguiente = document.getElementById('btn-siguiente');
+    const contadorPasos = document.getElementById('contador-pasos');
+
+    // 1. Función gatillada por tu "onchange" del select
+    function cargarHistoriaAutomatica() {
+      const seleccion = selector.value;
+      if (seleccion && baseHistorias[seleccion]) {
+        pasosActuales = baseHistorias[seleccion].pasos;
+        txtExplicacion.value = baseHistorias[seleccion].explicacion;
+        indiceActivo = 0; 
+        mostrarPasoSeleccionado();
+      } else {
+        reiniciarPantalla();
+      }
     }
-    // Lanza la ventana de impresión nativa. Gracias al CSS (@media print),
-    // solo se imprimirá el cuadro de texto estructurado de la historia social.
-    window.print();
-	}
+
+    // 2. Función encargada de renderizar la tarjeta y alternar las clases CSS de ocultado
+        // 2. RECONSTRUYE LAS TARJETAS APLICANDO LAS NUEVAS CLASES CSS DE AUDIO Y SECUENCIA
+      // 2. RECONSTRUYE LAS TARJETAS RECREANDO UN SOLO ELEMENTO ACTIVO A LA VEZ
+    function mostrarPasoSeleccionado() {
+      if (pasosActuales.length === 0) {
+        contenedorFlujo.innerHTML = '<p class="placeholder-flujo">Elige una rutina en el menú de arriba para generar la secuencia visual...</p>';
+        controlesHistoria.style.display = 'none';
+        return;
+      }
+
+      // Volver visible la barra de los botones Anterior/Siguiente
+      controlesHistoria.style.display = 'flex';
+
+      // Tomamos exclusivamente el paso activo correspondiente al índice actual
+      const paso = pasosActuales[indiceActivo];
+      
+      // Armamos la ruta uniendo los textos de forma clásica con el signo + para asegurar compatibilidad
+       const urlImagen = "https://static.arasaac.org/pictograms/" + paso.id + "/" + paso.id + "_500.png";
+     const textoLimpio = paso.palabra || "";
+      const numeroPaso = indiceActivo + 1;
+
+      // Inyectamos ÚNICAMENTE la tarjeta activa. Al no haber bucle, es imposible que se duplique el texto o se encimen tarjetas.
+      contenedorFlujo.innerHTML = `
+        <div class="paso-historia" style="position: relative;">
+          
+          <!-- Círculo del Número de Secuencia -->
+          <div class="numero-secuencia">${numeroPaso}</div>
+
+          <!-- Botón del Altavoz -->
+          <button class="btn-audio-pictograma" 
+                  onclick="reproducirAudio('${textoLimpio}')" 
+                  data-html2canvas-ignore="true">
+            🔊
+          </button>
+
+          <!-- Imagen Clickable de ARASAAC -->
+          <img src="${urlImagen}" 
+               alt="${textoLimpio}" 
+               referrerpolicy="no-referrer" 
+               onclick="reproducirAudio('${textoLimpio}')">
+               
+          <p>${textoLimpio}</p>
+        </div>
+      `;
+
+      // Actualiza la numeración intermedia (Paso 1 de 4)
+      contadorPasos.textContent = "Paso " + numeroPaso + " de " + pasosActuales.length;
+
+      // Deshabilita los botones de forma segura en los extremos
+      btnAnterior.disabled = (indiceActivo === 0);
+      btnSiguiente.disabled = (indiceActivo === pasosActuales.length - 1);
+    }
+
+
+    // FUNCIÓN DE REPRODUCCIÓN DE VOZ DIGITAL NATIVA
+    function reproducirAudio(texto) {
+      if (!texto) return;
+      
+      // Cancela lecturas previas inmediatamente
+      window.speechSynthesis.cancel();
+      
+      const mensaje = new SpeechSynthesisUtterance(texto);
+      mensaje.lang = 'es-ES'; // Configurado en español de España (o es-419 según el dispositivo)
+      mensaje.pitch = 1;      // Tono de voz amigable
+      mensaje.rate = 0.75;    // Velocidad un poco pausada para facilitar la asimilación cognitiva
+      
+      window.speechSynthesis.speak(mensaje);
+    }
+
+
+	    // 3. Función global requerida por tus disparadores "onclick" de los botones Anterior/Siguiente
+     function cambiarPaso(direccion) {
+      const nuevaPosicion = indiceActivo + direccion;
+      if (nuevaPosicion >= 0 && nuevaPosicion < pasosActuales.length) {
+        indiceActivo = nuevaPosicion;
+        mostrarPasoSeleccionado();
+      }
+    }
+
+  // 4. Función de reinicio vinculada al botón "Limpiar Todo"
+function reiniciarPantalla() {
+selector.value = "";
+txtExplicacion.value = "";
+pasosActuales = [];
+indiceActivo = 0;
+mostrarPasoSeleccionado();
+}
+// Función de control de la impresora nativa
+    function imprimirRutina() {
+      // 1. Buscamos todas las tarjetas que están ocultas en pantalla
+      const tarjetasOcultas = contenedorFlujo.querySelectorAll('.paso-historia.ocultar-en-pantalla');
+
+      // 2. Les removemos la clase de ocultación momentáneamente para que la impresora las pueda leer todas juntas
+      tarjetasOcultas.forEach(tarjeta => {
+        tarjeta.classList.remove('ocultar-en-pantalla');
+      });
+
+      // 3. Ejecutamos la ventana de impresión nativa del navegador
+      window.print();
+
+      // 4. Cuando el usuario cierra o guarda el documento, les devolvemos la clase para restaurar el carrusel en pantalla
+      tarjetasOcultas.forEach(tarjeta => {
+        tarjeta.classList.add('ocultar-en-pantalla');
+      });
+    }
   </script>
-  
 
 </body>
 </html>

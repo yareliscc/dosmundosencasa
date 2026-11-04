@@ -1,0 +1,75 @@
+/* Distribución horizontal alineada para tus dos enlaces */
+.caja-botones-centro {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background: rgba(255, 255, 255, 0.85); /* Fondo blanco traslúcido para legibilidad */
+  padding: 10px 20px;
+  border-radius: 24px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+		
+.menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff; /* Fondo blanco */
+    color: #333333; /* Texto oscuro elegante, puedes cambiarlo por tu azul si prefieres */
+    text-decoration: none; /* Quita el subrayado azul */
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 12px ;
+    margin-top: 12px 0;
+    border: 1px solid #eaeaea; /* Borde suave */
+    border-radius: 12px; /* Esquinas redondeadas */
+    gap: 15px; /* Espacio entre el icono y el texto */
+    transition: all 0.3s ease; /* Hace que el efecto sea suave */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+}
+
+.familia{
+    background:#ffffff;
+    max-width:430px;
+    margin:15px auto 20px;
+    padding:15px 25px;
+    border-radius:20px;
+    box-shadow:0 4px 20px rgba(0,0,0,.04);
+    text-align:center;
+    border:1px solid #f0f0f5;
+}
+.titulo-seccion{
+	color: #333333; margin-top: 0; margin-bottom: 30px; font-size: 1.10rem; font-weight: bold; letter-spacing: -0.3px;
+}
+.testimonio-wrapper {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 70px; /* Altura controlada para que no mueva el diseño inferior */
+    overflow: hidden;
+}
+
+.testimonio-item {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    animation: rotarTestimonios 8s infinite ease-in-out;
+}
+
+/* Tiempos de aparición para cada uno de los 3 comentarios */
+.testimonio-item:nth-child(1) { animation-delay: 0s; }
+.testimonio-item:nth-child(2) { animation-delay: 5s; }
+.testimonio-item:nth-child(3) { animation-delay: 10s; }
+
+@keyframes rotarTestimonios {
+    0%, 5% { opacity: 0; transform: translateY(10px); }
+    10%, 28% { opacity: 1; transform: translateY(0); }
+    33%, 100% { opacity: 0; transform: translateY(-10px); }
+}
+
+.autor{
+	color: #1a0dab; font-weight: bold; font-size: 0.85rem;
+}
+.testimonio{
+	font-style: italic; color: #555555; font-size: 0.95rem; line-height: 1.5; margin: 0 0 8px 0;
+}

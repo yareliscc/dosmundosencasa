@@ -1,0 +1,43 @@
+
+.enlace-social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fafafa;
+  border: 1px solid #eaeaea;
+  border-radius: 12px;
+  padding: 12px;
+  margin: 15px 0;			
+  text-decoration: none;
+  color: #1a0dab; 
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+ .enlace-social:hover {
+    transform: translateY(-2px);
+    background-color: #f0f0f5;
+ }
+
+/* Estilos asignados para los logos de FontAwesome */
+.enlace-social i {
+   font-size: 24px;
+   margin-right: 12px;
+}
+}
+/* Colores oficiales de marca para cada red */
+.fa-instagram { color: #e1306c; }
+.fa-facebook { color: #1877f2; }
+.fa-envelope { color: #ea4335; }
+
+.contenedor-combo {
+  max-width: 500px;
+  margin: 0 auto 25px auto;
+  margin-top: 100px;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+

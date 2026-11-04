@@ -6,8 +6,7 @@ body {
   margin: 0;
   background: linear-gradient(45deg, #ffb3b3, #ffd1b3, #fff0b3, #b3ffb3, #b3d9ff, #d9b3ff);
   background-size: 300% 300%;
-  animation: arcoiris-suave 20s ease infinite;
-       
+  animation: arcoiris-suave 20s ease infinite;       
 }
 
 @keyframes arcoiris-suave {
@@ -16,212 +15,16 @@ body {
   100% { background-position: 0% 50%; }
 }
 
-h1 { font-size: 2em; margin-bottom: 5px; color: #2c3e50; }
-.subtitulo { color: #5d6d7e; margin-top: 0; margin-bottom: 20px; }
-
-/* --- COMBO DE SELECCIÓN --- */
-.contenedor-combo {
-  max-width: 500px;
-  margin: 0 auto 25px auto;
-  margin-top: 100px;
-  background: rgba(255, 255, 255, 0.7);
-  padding: 15px;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-}
-label { font-weight: bold; margin-bottom: 8px; display: block; }
-select {
-  width: 100%;
-  padding: 10px;
-  font-size: 1em;
-  border: 1px solid #bdc3c7;
-  border-radius: 6px;
-  outline: none;
-  background: white;
-  color: #2c3e50;
-  cursor: pointer;
+h1 { 
+  font-size: 2em; 
+  margin-bottom: 5px; 
+  color: #2c3e50; 
 }
 
-/* --- SECCIÓN HISTORIA --- */
-.seccion-historia {
-  max-width: 900px;
-  margin: 0 auto;
-  background: rgba(255, 255, 255, 0.85);
-  padding: 25px;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-}
-
-.contenedor-explicacion {
-  text-align: left;
-  margin-bottom: 20px;
-}
-textarea {
-  width: 100%;
-  height: 80px;
-  padding: 12px;
-  font-size: 0.95em;
-  font-family: Arial, sans-serif;
-  border: 1px solid #bdc3c7;
-  border-radius: 8px;
-  resize: vertical;
-  outline: none;
-  box-sizing: border-box;
-  background: white;
-}
-
-.historia-flujo {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  justify-content: center;
-  min-height: 160px;
-  border: 2px dashed #bdc3c7;
-  border-radius: 8px;
-  padding: 15px;
-  background: rgba(255,255,255,0.5);
-  align-items: center;
-}
-
-.paso-historia {
-  background: white;
-  padding: 12px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  width: 120px;
-  text-align: center;
-  border: 1px solid #e0e0e0;
-}
-.paso-historia img { width: 100px; height: 100px; object-fit: contain; }
-.paso-historia p { margin: 5px 0 0 0; font-size: 0.85em; font-weight: bold; }
-
-button {
-  padding: 10px 20px;
-  font-size: 0.95em;
-  background-color: #7f8c8d;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-weight: bold;
-  cursor: pointer;
-  margin-top: 20px;
-}
-button:hover { background-color: #95a5a6; }
-
-.titulo {
-  font-size: 3em;
-  text-align: center;
-  margin-top: 20px;
-  margin-bottom: 40px;
-}
-
-/* Agrupador de botones de acción en pantalla */
-.btn-group {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 15px;
-}
-.btn-save {
-  background-color: #28a745;
-  color: white;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: bold;
-}
-.btn-save:hover { background-color: #218838; }
-
-.btn-print {
-  background-color: #007bff;
-  color: white;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: bold;
-}
-.btn-print:hover { background-color: #0069d9; }
-
-/* ESTILOS DE IMPRESIÓN EXCLUSIVOS */
-@media print {
-  body {
-    background: white !important;
-    color: black;
-    margin: 0;
-    padding: 0;
-  }
-  /* Ocultamos menús, botones, subtítulos y enlaces de navegación */
-  .titulo, .subtitulo, .contenedor-combo, .btn-group, button, .boton-volver, h3 {
-    display: none !important;
-  }
-  .seccion-historia {
-    box-shadow: none;
-    padding: 0;
-    margin: 0;
-  }
-  /* Ocultamos el borde del textarea de explicación para que parezca texto limpio */
-  #explicacion-texto {
-    border: none;
-    resize: none;
-    background: transparent;
-    padding: 0;
-    font-size: 16px;
-    color: black;
-  }
-  /* Aseguramos que el flujo visual de los pictogramas se imprima correctamente */
-  .historia-flujo {
-    display: flex !important;
-    border: none !important;
-    background: none !important;
-  }
-} /* Corregido: Se agregó esta llave que faltaba para cerrar el @media print */
-/* --- ESTILOS PARA LA PARTE DE ABAJO --- */
-
-/* Título principal de la marca (más oscuro y estilizado) */
-.titulo-marca {
-	 font-family: Arial, sans-serif;
-  font-size: 2.8em;
-  font-weight: 600; /* Peso semi-bold para que no se vea tosco */
-  color: #2b2b2b;   /* Gris casi negro idéntico al de la imagen */
-  margin-top: 15px;
-  margin-bottom: 5px;
-  letter-spacing: -0.5px; /* Junta un poquito las letras como en tu foto */
-}
-
-/* Eslogan inferior */
-.subtitulo-marca {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 1.00em;
-  color: #5d6d7e;   /* Gris intermedio suave */
-  margin-top: 0;
-  margin-bottom: 40px;
-}
-
-/* Pie de página para la red social */
-.pie-pagina {
-  margin-top: 100px; /* Le da bastante espacio hacia abajo */
-  padding: 20px 0;
-  width: 100%;
-}
-
-/* Nombre de usuario de Instagram */
-.usuario-red {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 1.0em;
-  color: #7f8c8d;   /* Gris claro muy sutil */
-  letter-spacing: 0.5px;
-  margin: 0;
-}
-/**/
-/*******************************************/
-/* --- ESTILOS GENERALES --- */
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  font-family: 'Segoe UI', Arial, sans-serif;
-  background-color: #ffffff;
+.subtitulo { 
+  color: #5d6d7e; 
+  margin-top: 0; 
+  margin-bottom: 20px; 
 }
 
 .pantalla-corporativa {
@@ -230,6 +33,40 @@ html, body {
   min-height: 100vh;
   position: relative; /* Mandatorio para poder fijar el pie de página abajo */
   box-sizing: border-box;
+}
+.accesos-superiores-izquierda {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.85); /* Fondo blanco traslúcido elegante */
+  padding: 15px 20px;
+  border-radius: 14px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  z-index: 100;
+}
+/* Estilo para los links de la esquina */
+.link-institucional {
+  font-size: 0.7em;
+  color: #34495e;
+  text-decoration: none;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.2s;
+}
+.link-institucional:hover {
+  color: #8e1c6a; /* Tu morado de marca */
+  text-decoration: underline;
+}
+
+.link-institucional img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
 }
 
 /* Espacio libre para proteger la zona del gran corazón central de tu fondo */
@@ -249,17 +86,19 @@ html, body {
   align-items: center;
   z-index: 10;
 }
-
-/* Distribución horizontal alineada para tus dos enlaces */
 .caja-botones-centro {
+  max-width: 500px;       /* Ajustado a 500px para alinearse con los demás cuadros */
+  width: 95%;             /* Para que se adapte bien en pantallas de celular */
+  margin: 20px auto 10px auto; /* Centrado automático */
+  background: white;
+  padding: 15px 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  
   display: flex;
-  flex-direction: column;
-  gap: 15px;
-  background: rgba(255, 255, 255, 0.85); /* Fondo blanco traslúcido para legibilidad */
-  padding: 20px 30px;
-  border-radius: 24px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  align-items: center;
+  position: relative; 
+  box-sizing: border-box;
 }
 .caja-botones-frase {
   display: flex;
@@ -268,42 +107,15 @@ html, body {
   padding: 15px 15px;
   border-radius: 24px;
 }
-
-/* Estilos de botones individuales */
-.boton-enlace {
-  font-size: 1.15em;
-  color: #2c3e50;
-  text-decoration: underline;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  transition: transform 0.2s;
+.frase-motivo{
+	max-width: 600px; margin: 50px auto; text-align: center; padding: 0 20px;
 }
-
-.boton-enlace:hover {
-  transform: scale(1.05);
-  color: #8e1c6a; /* Cambia a tu morado corporativo al pasar el mouse */
+.mi-frase{
+	font-size: 1.2rem; color: #555; line-height: 1.6; font-weight: 300;
 }
-
-.boton-enlace img {
-  width: 26px;
-  height: 26px;
-  object-fit: contain;
+.frase-final{
+	width: 40px; height: 2px; background: #e1306c; margin: 15px auto 0;
 }
-
-/* --- AJUSTES DE PIE DE PÁGINA --- */
-.bloque-inferior-textos {
-  position: absolute;
-  bottom: 0; /* Lo pega al borde inferior de la pantalla */
-  left: 0;
-  width: 100%;
-  text-align: center;
-  padding-bottom: 25px; /* Separación estética desde el piso */
-  box-sizing: border-box;
-  z-index: 5;
-}
-
 .texto-marca-titulo {
   font-size: 1.1em;
   font-weight: 600;
@@ -311,13 +123,11 @@ html, body {
   margin: 0 0 4px 0;
   letter-spacing: -0.5px;
 }
-
 .texto-marca-eslogan {
-  font-size: 0.15em;
+  font-size: 0.9em;
   color: #5d6d7e;
   margin: 0 0 10px 0;
 }
-
 .texto-marca-red {
   font-size: 1.00em;
   color: #7f8c8d;
@@ -327,8 +137,8 @@ html, body {
 /* --- NUEVA CAJA SUPERIOR IZQUIERDA --- */
 .accesos-superiores-izquierda {
   position: absolute;
-  top: 25px;
-  left: 25px;
+  top: 10px;
+  left: 10px;
   display: flex;
   gap: 12px;
   background: rgba(255, 255, 255, 0.85); /* Fondo blanco traslúcido elegante */
@@ -339,180 +149,32 @@ html, body {
   z-index: 100;
 }
 
-/* Estilo para los links de la esquina */
-.link-institucional {
-  font-size: 0.7em;
-  color: #34495e;
-  text-decoration: none;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  transition: color 0.2s;
-}
-
-.link-institucional:hover {
-  color: #8e1c6a; /* Tu morado de marca */
-  text-decoration: underline;
-}
-
-.link-institucional img {
-  width: 20px;
-  height: 20px;
-  object-fit: contain;
-}
-
-/* --- CONTENEDOR DE CONTENIDO INSTITUCIONAL (QUIÉNES SOMOS) --- */
-.contenedor-presentacion {
+.bloque-inferior-textos {
   position: absolute;
-  top: 50%; /* Alineación vertical central idéntica a los botones */
-  left: 50%;
-  transform: translate(-50%, -45%); /* Desplazamiento preciso bajo el corazón */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 10;
-  width: 90%;
-  max-width: 600px; /* Ancho cómodo para la lectura de párrafos largos */
+  bottom: 0; /* Lo pega al borde inferior de la pantalla */
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding-bottom: 25px; /* Separación estética desde el piso */
   box-sizing: border-box;
+  z-index: 5;
+}
+/* Pie de página para la red social */
+.pie-pagina {
+  margin-top: 100px; /* Le da bastante espacio hacia abajo */
+  padding: 20px 0;
+  width: 100%;
 }
 
-/* Caja de texto con el mismo acabado traslúcido corporativo */
-.caja-texto-institucional {
-  background: rgba(255, 255, 255, 0.9); /* Ligeramente más opaco para facilitar lectura del texto */
-  padding: 30px 35px;
-  border-radius: 20px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  text-align: left; /* Texto alineado a la izquierda para lectura profesional */
-}
-
-/* Título interno de la sección */
-.caja-texto-institucional h2 {
+/* Eslogan inferior */
+.subtitulo-marca {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.00em;
+  color: #5d6d7e;   /* Gris intermedio suave */
   margin-top: 0;
-  margin-bottom: 15px;
-  font-size: 1.8em;
-  color: #2b2b2b;
-  border-bottom: 2px solid #8e1c6a; /* Línea decorativa con tu morado de marca */
-  padding-bottom: 8px;
+  margin-bottom: 40px;
 }
 
-/* Estilo para los párrafos descriptivos */
-.caja-texto-institucional p {
-  font-size: 1.05em;
-  line-height: 1.6;
-  color: #34495e;
-  margin-bottom: 15px;
-}
-
-.caja-texto-institucional p:last-child {
-  margin-bottom: 0; /* Elimina el margen sobrante del último párrafo */
-}
-/* --- AJUSTES ESPECÍFICOS PARA EL BLOG --- */
-.contenedor-presentacion-blog {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -42%); /* Calibrado para dar espacio bajo el corazón */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 10;
-  width: 90%;
-  max-width: 650px; /* Un poco más ancho para que la lectura de artículos sea cómoda */
-  box-sizing: border-box;
-}
-
-/* Estilos internos para los artículos del blog */
-.post-item h3 {
-  font-size: 1.25em;
-  color: #2b2b2b;
-  margin-bottom: 4px;
-}
-
-.post-fecha {
-  font-size: 0.85em;
-  color: #7f8c8d;
-  margin-top: 0;
-  margin-bottom: 10px;
-  font-style: italic;
-}
-/* Estilos específicos para hacer los artículos desplegables */
-.articulo-desplegable {
-    margin-bottom: 15px;
-    padding-bottom: 15px;
-    border-bottom: 1px dashed #bdc3c7;
-}
-    
-.articulo-desplegable:last-of-type {
-   border-bottom: none;
-   margin-bottom: 0;
-   padding-bottom: 0;
-}
-
-/* El título que sirve de botón */
-.articulo-desplegable summary {
-   font-size: 1.25em;
-   font-weight: bold;
-   color: #2b2b2b;
-   cursor: pointer;
-   list-style: none; /* Oculta la flecha nativa en algunos navegadores */
-   display: flex;
-   align-items: center;
-   justify-content: space-between;
-   user-select: none;
-   padding: 5px 0;
-}
-
-/* Pequeño indicador visual a la derecha del título */
-.articulo-desplegable summary::after {
-   content: "➕";
-   font-size: 0.8em;
-   transition: transform 0.2s;
-}
-
-/* Cambia el icono cuando el artículo está abierto */
-.articulo-desplegable[open] summary::after {
-   content: "➖";
-}
-
-.articulo-desplegable summary:hover {
-   color: #8e1c6a; /* Tu morado de marca al pasar el mouse */
-}
-
-/* Contenedor del texto de adentro */
-.contenido-articulo {
-   margin-top: 12px;
-   animation: aparecerSuave 0.3s ease-out;
-}
-
-@keyframes aparecerSuave {
-   from { opacity: 0; transform: translateY(-5px); }
-   to { opacity: 1; transform: translateY(0); }
-}
-
-.tarjeta-redes {
-   background-color: white;
-   padding: 30px;
-   border-radius: 20px;
-   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-   text-align: center;
-   width: 90%;
-   max-width: 350px;
-}
-h2 {
- color: #333;
- margin-bottom: 20px;
- font-size: 1.4rem;
-}
-.btn-red {
-  display: block;
-  color: #1a0dab; /* El azul clásico de tus enlaces actuales */
-  text-decoration: underline;
-  font-size: 1.1rem;
-  margin: 15px 0;
-  padding: 10px;
-}
 .btn-volver {
    display: inline-block;
    margin-top: 20px;
@@ -523,154 +185,4 @@ h2 {
 
 .btn-volver:hover {
    text-decoration: underline;
-}
-
-.enlace-social {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #fafafa;
-  border: 1px solid #eaeaea;
-  border-radius: 12px;
-  padding: 12px;
-  margin: 15px 0;			
-  text-decoration: none;
-  color: #1a0dab; 
-  font-weight: bold;
-  font-size: 1.1rem;
-  transition: transform 0.2s, background-color 0.2s;
-}
-
- .enlace-social:hover {
-    transform: translateY(-2px);
-    background-color: #f0f0f5;
- }
-
-/* Estilos asignados para los logos de FontAwesome */
-.enlace-social i {
-   font-size: 24px;
-   margin-right: 12px;
-}
-}
-/* Colores oficiales de marca para cada red */
-.fa-instagram { color: #e1306c; }
-.fa-facebook { color: #1877f2; }
-.fa-envelope { color: #ea4335; }
-		
-.menu-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #ffffff; /* Fondo blanco */
-    color: #333333; /* Texto oscuro elegante, puedes cambiarlo por tu azul si prefieres */
-    text-decoration: none; /* Quita el subrayado azul */
-    font-weight: bold;
-    font-size: 1rem;
-    padding: 12px ;
-    margin-top: 12px 0;
-    border: 1px solid #eaeaea; /* Borde suave */
-    border-radius: 12px; /* Esquinas redondeadas */
-    gap: 15px; /* Espacio entre el icono y el texto */
-    transition: all 0.3s ease; /* Hace que el efecto sea suave */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
-}
-
-/* Efecto interactivo al pasar el mouse (:hover) */
-.menu-btn:hover {
-    transform: translateY(-2px); /* Eleva el botón sutilmente */
-    background-color: #f7f7fc; /* Cambia el fondo a un tono gris/azul muy suave */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08); /* Aumenta la sombra */
-    border-color: #d1d1d1;
-}
-
-/* Asegura que las imágenes de los iconos queden alineadas y del tamaño correcto */
-.menu-btn img {
-    width: 22px;
-    height: 22px;
-    object-fit: contain;
-}
-
-/* Contenedor principal del carrusel */
-.carrusel-contenedor {
-    width: 100%;
-    max-width: 500px; /* Tamaño máximo en pantalla */
-    margin: 10px auto;
-    overflow: hidden; /* Oculta las imágenes que están fuera de foco */
-    border-radius: 20px; /* Bordes redondeados que combinan con tus tarjetas */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-}
-
-/* Fila interna que se mueve de lado a lado */
-.carrusel-diapositivas {
-    display: flex;
-    width: 400%; /* Ajusta según el número de imágenes (4 imágenes = 400%) */
-    animation: deslizar 16s infinite ease-in-out; /* Velocidad del carrusel */
-}
-
-/* Estilo para cada imagen individual */
-.carrusel-diapositivas img {
-    width: 25%; /* Cada imagen ocupa 1/4 del contenedor completo */
-    height: 200px; /* Altura fija ajustable */
-    object-fit: cover; /* Evita que las imágenes se deformen */
-}
-
-/* Animación que desliza las fotos de forma automática */
-@keyframes deslizar {
-    0% { margin-left: 0%; }
-    20% { margin-left: 0%; }
-    25% { margin-left: -100%; } /* Pasa a la segunda imagen */
-    45% { margin-left: -100%; }
-    50% { margin-left: -200%; } /* Pasa a la tercera imagen */
-    70% { margin-left: -200%; }
-    75% { margin-left: -300%; } /* Pasa a la cuarta imagen */
-    95% { margin-left: -300%; }
-    100% { margin-left: 0%; }   /* Vuelve al inicio */
-}
-/* Animación para desvanecer y rotar los testimonios */
-.testimonio-wrapper {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    height: 70px; /* Altura controlada para que no mueva el diseño inferior */
-    overflow: hidden;
-}
-
-.testimonio-item {
-    position: absolute;
-    width: 100%;
-    opacity: 0;
-    animation: rotarTestimonios 8s infinite ease-in-out;
-}
-
-/* Tiempos de aparición para cada uno de los 3 comentarios */
-.testimonio-item:nth-child(1) { animation-delay: 0s; }
-.testimonio-item:nth-child(2) { animation-delay: 5s; }
-.testimonio-item:nth-child(3) { animation-delay: 10s; }
-
-@keyframes rotarTestimonios {
-    0%, 5% { opacity: 0; transform: translateY(10px); }
-    10%, 28% { opacity: 1; transform: translateY(0); }
-    33%, 100% { opacity: 0; transform: translateY(-10px); }
-}
-.familia{
-	"background: #ffffff; max-width: 430px; margin: 15px auto 20px; padding: 15px 25px; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.04); text-align: center; border: 1px solid #f0f0f5;
-}
-.titulo-seccion{
-	color: #333333; margin-top: 0; margin-bottom: 30px; font-size: 1.10rem; font-weight: bold; letter-spacing: -0.3px;
-}
-.autor{
-	color: #1a0dab; font-weight: bold; font-size: 0.85rem;
-}
-.testimonio{
-	font-style: italic; color: #555555; font-size: 0.95rem; line-height: 1.5; margin: 0 0 8px 0;
-}
-
-.frase-motivo{
-	max-width: 600px; margin: 50px auto; text-align: center; padding: 0 20px;
-}
-.mi-frase{
-	font-size: 1.2rem; color: #555; line-height: 1.6; font-weight: 300;">
-}
-.frase-final{
-	width: 40px; height: 2px; background: #e1306c; margin: 15px auto 0;
 }

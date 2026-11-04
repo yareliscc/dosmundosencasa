@@ -1,0 +1,114 @@
+/* --- AJUSTES ESPECÍFICOS PARA EL BLOG --- */
+.contenedor-presentacion-blog {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -42%); /* Calibrado para dar espacio bajo el corazón */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  width: 90%;
+  max-width: 650px; /* Un poco más ancho para que la lectura de artículos sea cómoda */
+  box-sizing: border-box;
+}
+
+/* Estilos internos para los artículos del blog */
+.post-item h3 {
+  font-size: 1.25em;
+  color: #2b2b2b;
+  margin-bottom: 4px;
+}
+
+.post-fecha {
+  font-size: 0.85em;
+  color: #7f8c8d;
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-style: italic;
+}
+/* Estilos específicos para hacer los artículos desplegables */
+.articulo-desplegable {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed #bdc3c7;
+}
+    
+.articulo-desplegable:last-of-type {
+   border-bottom: none;
+   margin-bottom: 0;
+   padding-bottom: 0;
+}
+
+/* El título que sirve de botón */
+.articulo-desplegable summary {
+   font-size: 1.25em;
+   font-weight: bold;
+   color: #2b2b2b;
+   cursor: pointer;
+   list-style: none; /* Oculta la flecha nativa en algunos navegadores */
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   user-select: none;
+   padding: 5px 0;
+}
+
+/* Pequeño indicador visual a la derecha del título */
+.articulo-desplegable summary::after {
+   content: "➕";
+   font-size: 0.8em;
+   transition: transform 0.2s;
+}
+
+/* Cambia el icono cuando el artículo está abierto */
+.articulo-desplegable[open] summary::after {
+   content: "➖";
+}
+
+.articulo-desplegable summary:hover {
+   color: #8e1c6a; /* Tu morado de marca al pasar el mouse */
+}
+
+/* Contenedor del texto de adentro */
+.contenido-articulo {
+   margin-top: 12px;
+   animation: aparecerSuave 0.3s ease-out;
+}
+
+@keyframes aparecerSuave {
+   from { opacity: 0; transform: translateY(-5px); }
+   to { opacity: 1; transform: translateY(0); }
+}
+
+/* Caja de texto con el mismo acabado traslúcido corporativo */
+.caja-texto-institucional {
+  background: rgba(255, 255, 255, 0.9); /* Ligeramente más opaco para facilitar lectura del texto */
+  padding: 30px 35px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  text-align: left; /* Texto alineado a la izquierda para lectura profesional */
+}
+
+/* Título interno de la sección */
+.caja-texto-institucional h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.8em;
+  color: #2b2b2b;
+  border-bottom: 2px solid #8e1c6a; /* Línea decorativa con tu morado de marca */
+  padding-bottom: 8px;
+}
+
+/* Estilo para los párrafos descriptivos */
+.caja-texto-institucional p {
+  font-size: 1.05em;
+  line-height: 1.6;
+  color: #34495e;
+  margin-bottom: 15px;
+}
+
+.caja-texto-institucional p:last-child {
+  margin-bottom: 0; /* Elimina el margen sobrante del último párrafo */
+}
