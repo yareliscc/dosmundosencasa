@@ -175,7 +175,7 @@ h1 { font-size: 2em; margin-bottom: 5px; color: #2c3e50; }
   box-sizing: border-box;
 }
 .contenedor-accesos {
-  position: absolute;
+  position: relative;
   top: 60%; /* Si quieres que baje un poco más, cámbialo a 52% o 54% */
   left: 50%;
   transform: translate(-50%, -50%); /* Centrado matemático absoluto */
