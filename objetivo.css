@@ -1,9 +1,7 @@
 /* --- CONTENEDOR DE CONTENIDO INSTITUCIONAL (QUIÉNES SOMOS) --- */
 .contenedor-presentacion {
-  position: absolute;
-  top: 50%; /* Alineación vertical central idéntica a los botones */
-  left: 50%;
-  transform: translate(-50%, -45%); /* Desplazamiento preciso bajo el corazón */
+  position: relative;
+  margin: 200px auto 0 auto; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,6 +9,7 @@
   width: 90%;
   max-width: 600px; /* Ancho cómodo para la lectura de párrafos largos */
   box-sizing: border-box;
+ 
 }
 
 /* Caja de texto con el mismo acabado traslúcido corporativo */

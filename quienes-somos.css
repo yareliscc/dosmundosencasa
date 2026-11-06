@@ -32,15 +32,15 @@
 
 /* --- CONTENEDOR DE CONTENIDO INSTITUCIONAL (QUIÉNES SOMOS) --- */
 .contenedor-presentacion {
-  position: absolute;
-  top: 50%; /* Alineación vertical central idéntica a los botones */
-  left: 50%;
-  transform: translate(-50%, -45%); /* Desplazamiento preciso bajo el corazón */
+  position: relative;
+  
+  /* NUEVO: Centrado limpio con márgenes en lugar de transformaciones matemáticas */
+  margin: 200px auto 0 auto; 
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 10;
   width: 90%;
-  max-width: 600px; /* Ancho cómodo para la lectura de párrafos largos */
+  max-width: 750px;
   box-sizing: border-box;
 }

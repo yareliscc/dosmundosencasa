@@ -8,95 +8,93 @@
   <link rel="stylesheet" href="pictograma.css">
 </head>
 <body>
-	<div class="pantalla-corporativa">
-    <nav class="accesos-superiores-izquierda">
+  <nav class="accesos-superiores-izquierda">
       <a href="index.html" class="link-institucional">
         <img src="images.jpg" alt="Volver">
         <span>← Volver al inicio</span>
       </a>
-    </nav>
-	<header class="bloque-superior-vacio"></header>
-	<h1 class="caja-botones-centro">Creador de Historias Sociales</h1>
-	<p class="caja-botones-centro">Selecciona una plantilla para cargar una historia automáticamente</p>
+  </nav>
 
-	<!-- SELECCIÓN POR COMBO (SELECT) -->
-	<div class="contenedor-combo">
-		<label for="selector-historia">📖 Elige una Historia Social Predefinida:</label>
-		<select id="selector-historia" onchange="cargarHistoriaAutomatica()">
-			<option value="">-- Selecciona una opción --</option>
-			<option value="manos">🧼 Lavarse las manos antes de comer</option>
-			<option value="dientes">🪥 Cepillarse los dientes</option>
-			<option value="colegio">🎒 Rutina para ir a la escuela</option>
-			<option value="escuela">📝 ¿Qué hacer en el colegio?</option>
-		<!--	<option value="trabajo">🔨 ¿Qué hacer en el trabajo?</option> --!>
-			<option value="trabajos">💼 Rutina para ir al trabajo</option>
-			<option value="pipi">🚽 Rutina para hacer pipi</option> <!-- Corregido: Opción lista -->
-			<option value="popo">🚽 Rutina para hacer popo</option>
-			<!--<option value="Bañarse">🚿 Rutina para Bañarse</option>
-			<option value="vestirse">👕 Rutina para Vestirse</option>	
-			<option value="comer">👕 Rutina para comer</option>	
-			<option value="cubierto">👕 Rutina para el uso de cubiertos</option>	
-			<option value="bus">👕 viajar en bus</option>	
-			<option value="compras">👕 vamos de compras</option>	
-			<option value="supermercado">👕 vamos al supermercado</option>	
-			<option value="restaurant">👕 vamos a un restaurant</option>	
-			<option value="avion">👕 viajar en avión</option>	
-			<option value="corte">👕 Corte de cabello</option>	
-			<option value="tarea">👕 Hacer Tarea</option>	
-			<option value="espera">👕 ¿Qué es esperar?</option>
-			<option value="esperar">👕 ¿Qué hacer cuando esperas?</option>
-			<option value="nina">👕 Cuidar tus partes intimas NIÑA-MUJER</option>
-			<option value="nino">👕 Cuidar tus partes intimas NIÑO-HOMBRE</option>			
-			<option value="menstruacion">👕 ¿Qué es la menstruación?</option>
-			<option value="menstruar">👕 ¿Qué hacer cuando menstruas?</option>
-			<option value="eyaculacion">👕 ¿Qué es la eyaculación?</option>
-			<option value="eyacular">👕 ¿Qué hacer cuando eyaculas?</option>
-			<option value="masturbacion">👕 ¿Qué hacer cuando te masturbas?</option>
-			<option value="dormir">👕 Rutina para ir a dormir</option>--!>
-		</select>
+	<div class="pantalla-corporativa">	
+      <div class="seccion-historia">
+	    <!-- SELECCIÓN POR COMBO (SELECT) -->
+	    <h1 class="caja-botones-centro">Creador de Historias Sociales</h1>
+      <p class="caja-botones-centro">Selecciona una plantilla para cargar una historia automáticamente</p>
+	 
+	    <div class="contenedor-combo">
+		    <label for="selector-historia">📖 Elige una Historia Social Predefinida:</label>
+		    <select id="selector-historia" onchange="cargarHistoriaAutomatica()">
+			    <option value="">-- Selecciona una opción --</option>
+ 			    <option value="manos">🧼 Lavarse las manos antes de comer</option>
+			    <option value="dientes">🪥 Cepillarse los dientes</option>
+			    <option value="colegio">🎒 Rutina para ir a la escuela</option>
+			    <option value="escuela">📝 ¿Qué hacer en el colegio?</option>
+		      <!--	<option value="trabajo">🔨 ¿Qué hacer en el trabajo?</option> --!>
+			    <option value="trabajos">💼 Rutina para ir al trabajo</option>
+			    <option value="pipi">🚽 Rutina para hacer pipi</option> <!-- Corregido: Opción lista -->
+			    <option value="popo">🚽 Rutina para hacer popo</option>
+			    <!--<option value="Bañarse">🚿 Rutina para Bañarse</option>
+			    <option value="vestirse">👕 Rutina para Vestirse</option>	
+			    <option value="comer">👕 Rutina para comer</option>	
+			    <option value="cubierto">👕 Rutina para el uso de cubiertos</option>	
+			    <option value="bus">👕 viajar en bus</option>	
+			    <option value="compras">👕 vamos de compras</option>	
+			    <option value="supermercado">👕 vamos al supermercado</option>	
+			    <option value="restaurant">👕 vamos a un restaurant</option>	
+			    <option value="avion">👕 viajar en avión</option>	
+			    <option value="corte">👕 Corte de cabello</option>	
+			    <option value="tarea">👕 Hacer Tarea</option>	
+			    <option value="espera">👕 ¿Qué es esperar?</option>
+			    <option value="esperar">👕 ¿Qué hacer cuando esperas?</option>
+			    <option value="nina">👕 Cuidar tus partes intimas NIÑA-MUJER</option>
+			    <option value="nino">👕 Cuidar tus partes intimas NIÑO-HOMBRE</option>			
+			    <option value="menstruacion">👕 ¿Qué es la menstruación?</option>
+			    <option value="menstruar">👕 ¿Qué hacer cuando menstruas?</option>
+			    <option value="eyaculacion">👕 ¿Qué es la eyaculación?</option>
+			    <option value="eyacular">👕 ¿Qué hacer cuando eyaculas?</option>
+			    <option value="masturbacion">👕 ¿Qué hacer cuando te masturbas?</option>
+			    <option value="dormir">👕 Rutina para ir a dormir</option>-->
+		    </select>
+	    </div>
+	  		
+		  <!-- Área dinámica de impresión -->
+		  <div id="storyDisplay" class="story-display">
+		  	<h2 id="storyTitle"></h2>
+		  	<ul id="storySteps"></ul>
+	  	</div>	
+		  <!-- Boton de acción -->
+		  <div class="btn-group" data-html2canvas-ignore="true">
+		  	<button class="btn-print" onclick="imprimirRutina()">Guardar/Imprimir</button>
+		  </div>
+		  <div class="contenedor-explicacion">
+		  	<label for="explicacion-texto"><strong>Explicación / Guía de la Historia:</strong></label>
+		  	<textarea id="explicacion-texto" placeholder="Selecciona una historia del menú de arriba para ver su explicación..." readonly></textarea>
+		  </div>
+
+      <!-- Recuadro para la secuencia visual -->
+      <div class="historia-flujo" id="contenedor-flujo">
+         <p class="placeholder-flujo">Elige una rutina en el menú de arriba para generar la secuencia visual...</p>
+      </div>
+      <!-- BOTONES DE NAVEGACIÓN ASOCIADOS A TUS ONCLICK NATIVOS -->
+      <div class="controles-navegacion" id="controles-historia" style="display: none; justify-content: space-between; align-items: center; margin-top: 15px; margin-bottom: 15px;">
+         <button class="btn-nav" id="btn-anterior" onclick="cambiarPaso(-1)">◀ Anterior</button>
+         <span class="indicador-pasos" id="contador-pasos">Paso 1 de X</span>
+         <button class="btn-nav" id="btn-siguiente" onclick="cambiarPaso(1)">Siguiente ▶</button>
+      </div>
+      <div class="barra-progreso">
+    	  <div class="progreso"></div>
+      </div>
+      <button class="btn-limpiar" onclick="reiniciarPantalla()">Limpiar Todo 🔄</button>
+		</div>
 	</div>
-		 ESPACIO DE LA HISTORIA GENERADA -->
-	<div class="seccion-historia">
-		<h3>Ficha de la Historia Social</h3>   		
-		<!-- Área dinámica de impresión -->
-		<div id="storyDisplay" class="story-display">
-			<h2 id="storyTitle"></h2>
-			<ul id="storySteps"></ul>
-		</div>	
-		<!-- Boton de acción -->
-		<div class="btn-group" data-html2canvas-ignore="true">
-			<button class="btn-print" onclick="imprimirRutina()">Guardar/Imprimir</button>
-		</div>
-		<div class="contenedor-explicacion">
-			<label for="explicacion-texto"><strong>Explicación / Guía de la Historia:</strong></label>
-			<textarea id="explicacion-texto" placeholder="Selecciona una historia del menú de arriba para ver su explicación..." readonly></textarea>
-		</div>
 
-        <!-- Recuadro para la secuencia visual -->
-        <div class="historia-flujo" id="contenedor-flujo">
-          <p class="placeholder-flujo">Elige una rutina en el menú de arriba para generar la secuencia visual...</p>
-        </div>
-
-
-        <!-- BOTONES DE NAVEGACIÓN ASOCIADOS A TUS ONCLICK NATIVOS -->
-        <div class="controles-navegacion" id="controles-historia" style="display: none; justify-content: space-between; align-items: center; margin-top: 15px; margin-bottom: 15px;">
-          <button class="btn-nav" id="btn-anterior" onclick="cambiarPaso(-1)">◀ Anterior</button>
-          <span class="indicador-pasos" id="contador-pasos">Paso 1 de X</span>
-          <button class="btn-nav" id="btn-siguiente" onclick="cambiarPaso(1)">Siguiente ▶</button>
-        </div>
-        		<div class="barra-progreso">
-    		<div class="progreso"></div>
-		</div>
-		<button class="btn-limpiar" onclick="reiniciarPantalla()">Limpiar Todo 🔄</button>
-
-	</div>
   <script>
     // Base de datos de historias predefinidas (IDs reales de pictogramas de ARASAAC)
    const baseHistorias = {
       manos: {
         explicacion: "Esta historia social guia en la limpieza de nuestras manos .",
         pasos: [
-		  { palabra: "Mojarse las manos", id: 8975 },
+		      { palabra: "Mojarse las manos", id: 8975 },
           { palabra: "Colocar Jabón", id: 29034 },
           { palabra: "Quitarse el Jabón", id: 8975 },
           { palabra: "Secar las manos", id: 37049 }
@@ -106,26 +104,26 @@
         explicacion: "Rutina estructurada para guiar el cepillado de los dientes.",
         pasos: [
           { palabra: "Lavar cepillo de dientes", id: 11963 },
-		  { palabra: "Colocar Pasta Dental", id: 30614 },
+		      { palabra: "Colocar Pasta Dental", id: 30614 },
           { palabra: "Cepillarse", id: 31880 },
-		  { palabra: "Escupir", id: 7090 },
+		      { palabra: "Escupir", id: 7090 },
           { palabra: "Enjuagar", id: 8560 },
-		  { palabra: "Escupir", id: 7090 },
-		  { palabra: "lavarse la cara", id: 34775 },
-		  { palabra: "secarse", id: 28507 }
+		      { palabra: "Escupir", id: 7090 },
+		      { palabra: "lavarse la cara", id: 34775 },
+		      { palabra: "secarse", id: 28507 }
         ]
       },
       colegio: {
         explicacion: "Guía de anticipación diaria de como comportarnos en la escuela. Ayuda a entender el contexto escolar y lo que se espera durante la jornada escolar.",
         pasos: [
           { palabra: "Despertar", id: 31857 },
-		  { palabra: "Bañarse", id: 38582 },
-		  { palabra: "Vestirse", id: 2781 },
+		      { palabra: "Bañarse", id: 38582 },
+		      { palabra: "Vestirse", id: 2781 },
           { palabra: "Desayunar", id: 4625 },		  
-		  { palabra: "Cepillarse los dientes", id: 31880 },
-		  { palabra: "Peinarse", id: 2512 },
+		      { palabra: "Cepillarse los dientes", id: 31880 },
+		      { palabra: "Peinarse", id: 2512 },
           { palabra: "Colocarse la Mochila", id: 38265 },
-		  { palabra: "caminar", id: 32214 },
+		      { palabra: "caminar", id: 32214 },
           { palabra: "Escuela", id: 3082 }
         ]
       },
@@ -133,32 +131,32 @@
         explicacion: "Guía de anticipación diaria para la transición de casa a la escuela. Ayuda a organizar la mañana de forma predecible y organizada.",
         pasos: [
           { palabra: "saludar", id: 6009 },
-		  { palabra: "entrar a tu sala", id: 28687 },
-		  { palabra: "colgar mochila", id: 37896 },
+		      { palabra: "entrar a tu sala", id: 28687 },
+		      { palabra: "colgar mochila", id: 37896 },
           { palabra: "sentarse", id: 31041 },		  
-		  { palabra: "hacer tarea", id: 2387 },
-		  { palabra: "participar", id: 9034 },
+		      { palabra: "hacer tarea", id: 2387 },
+		      { palabra: "participar", id: 9034 },
           { palabra: "ir al receso", id: 28689 },
-		  { palabra: "merendar", id: 28835 },
+		      { palabra: "merendar", id: 28835 },
           { palabra: "jugar", id: 37074 },
-		  { palabra: "volver a tu sala", id: 28687 },
-		  { palabra: "sentarse", id: 31041 },		  
-		  { palabra: "hacer tarea", id: 2387 },
-		  { palabra: "participar", id: 9034 },
-		  { palabra: "decir adios", id: 6009 },
-		  { palabra: "volver a casa", id: 32214 }
+		      { palabra: "volver a tu sala", id: 28687 },
+		      { palabra: "sentarse", id: 31041 },		  
+		      { palabra: "hacer tarea", id: 2387 },
+		      { palabra: "participar", id: 9034 },
+		      { palabra: "decir adios", id: 6009 },
+		      { palabra: "volver a casa", id: 32214 }
         ]
       },
 	   trabajo: {
         explicacion: "Guía de anticipación diaria para la transición de casa al trabajo. Ayuda a organizar la mañana de forma predecible y organizada.",
         pasos: [
           { palabra: "Despertar", id: 31857 },
-		  { palabra: "Bañarse", id: 38582 },
-		  { palabra: "Vestirse", id: 2781 },
+		      { palabra: "Bañarse", id: 38582 },
+		      { palabra: "Vestirse", id: 2781 },
           { palabra: "Desayunar", id: 4625 },		  
-		  { palabra: "Cepillarse los dientes", id: 31880 },
-		  { palabra: "Peinarse", id: 2512 },
-		  { palabra: "tomar transporte", id: 37194 },
+		      { palabra: "Cepillarse los dientes", id: 31880 },
+		      { palabra: "Peinarse", id: 2512 },
+		      { palabra: "tomar transporte", id: 37194 },
           { palabra: "Trabajo", id: 16087 }
         ]
       },	  
@@ -166,17 +164,17 @@
         explicacion: "Guía de anticipación diaria de como comportarnos en el trabajo. Ayuda a entender el contexto laboral.",
         pasos: [
           { palabra: "saludar", id: 31857 },
-		  { palabra: "guardar mochila", id: 38582 },
-		  { palabra: "trabajar", id: 2781 },
+		      { palabra: "guardar mochila", id: 38582 },
+		      { palabra: "trabajar", id: 2781 },
           { palabra: "a las 13:00 almorzar", id: 2781 },		  
-		  { palabra: "descansar 10 min.", id: 31880 },
-		  { palabra: "trabajar", id: 2512 },
-		  { palabra: "tomar agua", id: 32214 },
-		  { palabra: "trabajar", id: 2781 },
+		      { palabra: "descansar 10 min.", id: 31880 },
+		      { palabra: "trabajar", id: 2512 },
+		      { palabra: "tomar agua", id: 32214 },
+		      { palabra: "trabajar", id: 2781 },
           { palabra: "ir al baño", id: 3082 },
-		  { palabra: "trabajar", id: 2781 },
-		  { palabra: "decir adios", id: 31857 },
-		  { palabra: "volver a casa", id: 2512 }
+		      { palabra: "trabajar", id: 2781 },
+		      { palabra: "decir adios", id: 31857 },
+		      { palabra: "volver a casa", id: 2512 }
         ]
       },
       // NUEVO: Agregamos la base de datos para la rutina de Pipí con IDs reales de ARASAAC
@@ -185,12 +183,12 @@
         pasos: [
           { palabra: "Ganas de hacer pipí", id: 28614 },
           { palabra: "Ir al inodoro", id: 2430 },
-		  { palabra: "Bajarse la ropa", id: 10143 },
-		  { palabra: "Hacer pipi", id: 3429 },
+		      { palabra: "Bajarse la ropa", id: 10143 },
+		      { palabra: "Hacer pipi", id: 3429 },
           { palabra: "Usar papel", id: 10147 },
-		  { palabra: "limpiar zona", id: 36652 },
-		  { palabra: "Tirar papel", id: 37084 },
-		  { palabra: "bajar cadena", id: 39547 },
+		      { palabra: "limpiar zona", id: 36652 },
+		      { palabra: "Tirar papel", id: 37084 },
+		      { palabra: "bajar cadena", id: 39547 },
           { palabra: "Lavar manos", id: 29210 }
         ]
       },
@@ -199,12 +197,12 @@
         pasos: [
           { palabra: "Ganas de hacer popo", id: 28614 },
           { palabra: "Ir al inodoro", id: 2430 },
-		  { palabra: "Bajarse la ropa", id: 10143 },
-		  { palabra: "Hacer popo", id: 35348 },
+		      { palabra: "Bajarse la ropa", id: 10143 },
+		      { palabra: "Hacer popo", id: 35348 },
           { palabra: "Usar papel", id: 10147 },
-		  { palabra: "limpiar zona", id: 10170 },
-		  { palabra: "Tirar papel", id: 37084 },
-		  { palabra: "bajar cadena", id: 39547 },
+		      { palabra: "limpiar zona", id: 10170 },
+		      { palabra: "Tirar papel", id: 37084 },
+		      { palabra: "bajar cadena", id: 39547 },
           { palabra: "Lavar manos", id: 29210 }
         ]
       },
@@ -213,19 +211,19 @@
         pasos: [
           { palabra: "buscar la toalla", id: 28614 },
           { palabra: "entrar a baño", id: 2430 },
-		  { palabra: "quitarse la ropa", id: 10143 },
-		  { palabra: "entrar a la ducha", id: 3429 },
-		  { palabra: "abrir la llave", id: 3429 },
+		      { palabra: "quitarse la ropa", id: 10143 },
+		      { palabra: "entrar a la ducha", id: 3429 },
+		      { palabra: "abrir la llave", id: 3429 },
           { palabra: "mojarse", id: 10147 },
-		  { palabra: "ponerse jabon", id: 36652 },
-		  { palabra: "quitarse el Jabón", id: 39547 },
-		  { palabra: "ponerse shampoo", id: 37084 },
-	      { palabra: "quitarse el Jabón", id: 39547 },
-		  { palabra: "cerrar la llave", id: 29210 },
-		   { palabra: "agarrar la toalla", id: 29210 },
-		    { palabra: "secarse", id: 29210 },
-			{ palabra: "colcocarse la toalla", id: 29210 },
-			{ palabra: "salir del baño", id: 29210 }
+		      { palabra: "ponerse jabon", id: 36652 },
+		      { palabra: "quitarse el Jabón", id: 39547 },
+		      { palabra: "ponerse shampoo", id: 37084 },
+	        { palabra: "quitarse el Jabón", id: 39547 },
+		      { palabra: "cerrar la llave", id: 29210 },
+		      { palabra: "agarrar la toalla", id: 29210 },
+		      { palabra: "secarse", id: 29210 },
+			    { palabra: "colcocarse la toalla", id: 29210 },
+			    { palabra: "salir del baño", id: 29210 }
         ]
       },
 	    vestirse: {
@@ -233,12 +231,12 @@
         pasos: [
           { palabra: "buscar la ropa", id: 28614 },
           { palabra: "desodorante", id: 2430 },
-		  { palabra: "ropa interior", id: 10143 },
-		  { palabra: "calcetines", id: 3429 },
+		      { palabra: "ropa interior", id: 10143 },
+		      { palabra: "calcetines", id: 3429 },
           { palabra: "pantalon, Short o falda" ,id: 10147 },
-		  { palabra: "camisa o vestido", id: 36652 },
-		  { palabra: "zapatos", id: 37084 },
-		  { palabra: "peinarse", id: 39547 }
+		      { palabra: "camisa o vestido", id: 36652 },
+		      { palabra: "zapatos", id: 37084 },
+		      { palabra: "peinarse", id: 39547 }
         ]
       }
     };

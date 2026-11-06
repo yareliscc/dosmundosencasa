@@ -33,9 +33,15 @@ h1 {
   min-height: 100vh;
   position: relative; /* Mandatorio para poder fijar el pie de página abajo */
   box-sizing: border-box;
+
+    /* NUEVO: Distribución flexible para evitar solapamientos */
+  display: flex;
+  flex-direction: column;
 }
+
+
 .accesos-superiores-izquierda {
-  position: absolute;
+  position: relative;
   top: 10px;
   left: 10px;
   display: flex;
@@ -77,15 +83,16 @@ h1 {
 
 /* --- CONTENEDOR DE ENLACES MEJORADOS --- */
 .contenedor-accesos {
-  position: absolute;
-  top: 60%; /* Si quieres que baje un poco más, cámbialo a 52% o 54% */
-  left: 50%;
-  transform: translate(-50%, -50%); /* Centrado matemático absoluto */
+  position: relative;
+  margin: auto; /* Esto lo centra vertical y horizontalmente de forma segura */
+  padding: 20px;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 10;
+  z-index: 10;  
 }
+
 .caja-botones-centro {
   max-width: 500px;       /* Ajustado a 500px para alinearse con los demás cuadros */
   width: 95%;             /* Para que se adapte bien en pantallas de celular */
@@ -97,6 +104,7 @@ h1 {
   
   display: flex;
   align-items: center;
+  text-align: center;
   position: relative; 
   box-sizing: border-box;
 }
@@ -150,12 +158,12 @@ h1 {
 }
 
 .bloque-inferior-textos {
-  position: absolute;
-  bottom: 0; /* Lo pega al borde inferior de la pantalla */
-  left: 0;
+  position: relative; 
   width: 100%;
   text-align: center;
-  padding-bottom: 25px; /* Separación estética desde el piso */
+    margin-top: 40px; 
+  padding-bottom: 25px; 
+  padding: 30px 20px 15px 20px;
   box-sizing: border-box;
   z-index: 5;
 }
@@ -168,7 +176,7 @@ h1 {
 
 /* Eslogan inferior */
 .subtitulo-marca {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: Arial, sans-serif;
   font-size: 1.00em;
   color: #5d6d7e;   /* Gris intermedio suave */
   margin-top: 0;

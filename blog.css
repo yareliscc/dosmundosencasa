@@ -1,15 +1,15 @@
 /* --- AJUSTES ESPECÍFICOS PARA EL BLOG --- */
 .contenedor-presentacion-blog {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -42%); /* Calibrado para dar espacio bajo el corazón */
+  position: relative;
+  
+  /* NUEVO: Centrado limpio con márgenes en lugar de transformaciones matemáticas */
+  margin: 200px auto 0 auto; 
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 10;
   width: 90%;
-  max-width: 650px; /* Un poco más ancho para que la lectura de artículos sea cómoda */
+  max-width: 750px;
   box-sizing: border-box;
 }
 
