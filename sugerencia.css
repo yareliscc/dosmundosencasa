@@ -199,10 +199,9 @@ h1 { font-size: 2em; margin-bottom: 5px; color: #2c3e50; }
 /* --- AJUSTES DE PIE DE PÁGINA --- */
 .bloque-inferior-textos {
   position: relative;
-  bottom: 0; /* Lo pega al borde inferior de la pantalla */
-  left: 0;
   width: 100%;
   text-align: center;
+  margin-top: 30px; /* Espacio limpio entre la tarjeta del botón y el texto */
   padding-bottom: 10px; /* Separación estética desde el piso */
   box-sizing: border-box;
   z-index: 5;
