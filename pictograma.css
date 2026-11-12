@@ -260,47 +260,100 @@ textarea {
    3. REGLAS EXCLUSIVAS PARA IMPRESIÓN (FUERZA LA TIRA COMPLETA EN HOJA)
    ========================================================================== */
 @media print {
+  @page {
+    size: auto;
+    margin: 10mm;
+  }
+
   body {
     background: white !important;
-    color: black;
-    margin: 0;
-    padding: 0;
+    color: black !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
   }
-  .accesos-superiores-izquierda, .caja-botones-centro, p.caja-botones-centro, 
-  .contenedor-combo, .btn-group, .btn-limpiar, .seccion-historia h3, .controles-navegacion {
+
+  /* Ocultar elementos de interfaz */
+  .accesos-superiores-izquierda, 
+  .contenedor-cabecera,
+  .boton-volver,
+  .titulo-principal,
+  .caja-botones-centro, 
+  p.caja-botones-centro, 
+  .contenedor-combo, 
+  .btn-group, 
+  .btn-limpiar, 
+  .seccion-historia h3, 
+  .controles-navegacion,
+  .btn-audio-pictograma,
+  .barra-progreso {
     display: none !important;
   }
+
+  /* Liberar el contenedor principal para que use todo el papel */
+  .seccion-historia {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+  }
+
   #explicacion-texto {
     border: none !important;
-    resize: none;
-    background: transparent;
-    padding: 0;
-    font-size: 16px;
-    color: black;
+    resize: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+    font-size: 14pt !important;
+    color: black !important;
+    height: auto !important;
+    margin-bottom: 15px !important;
   }
-  /* Anulamos la ocultación en la impresora para que salgan todas */
-  .paso-historia.ocultar-en-pantalla {
-    display: block !important;
-  }
+
+  /* Evitar display: flex en móviles al imprimir */
   .historia-flujo {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    gap: 15px;
-    justify-content: center;
+    display: block !important;
+    text-align: center !important;
     border: none !important;
     background: none !important;
+    padding: 0 !important;
+    min-height: auto !important;
+    width: 100% !important;
   }
-  .paso-historia {
+
+  /* Mostrar todas las tarjetas en cuadrícula segura para móviles */
+  .paso-historia,
+  .paso-historia.ocultar-en-pantalla {
+    display: inline-block !important;
+    vertical-align: top !important;
     width: 120px !important;
+    margin: 8px !important;
+    padding: 10px !important;
     box-shadow: none !important;
     border: 1px solid #ccc !important;
     transform: none !important;
+    position: relative !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
   }
+
   .paso-historia img {
-    width: 100px !important;
-    height: 100px !important;
+    width: 95px !important;
+    height: 95px !important;
+  }
+
+  .numero-secuencia {
+    position: static !important;
+    margin: 0 auto 5px auto !important;
+    box-shadow: none !important;
+    border: 1px solid #2c3e50 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
 }
+
 /* --- INDICADOR VISUAL DE SECUENCIA (NÚMERO) --- */
 .numero-secuencia {
   position: absolute;

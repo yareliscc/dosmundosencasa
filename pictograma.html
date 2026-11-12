@@ -25,27 +25,30 @@
 		    <label for="selector-historia">📖 Elige una Historia Social Predefinida:</label>
 		    <select id="selector-historia" onchange="cargarHistoriaAutomatica()">
 			    <option value="">-- Selecciona una opción --</option>
- 			    <option value="manos">🧼 Lavarse las manos antes de comer</option>
+          <option value="cara">🧖‍♀️ Lavarse la cara</option>
+ 			    <option value="manos">🧼 Lavarse las manos</option>
 			    <option value="dientes">🪥 Cepillarse los dientes</option>
 			    <option value="colegio">🎒 Rutina para ir a la escuela</option>
 			    <option value="escuela">📝 ¿Qué hacer en el colegio?</option>
-		      <!--	<option value="trabajo">🔨 ¿Qué hacer en el trabajo?</option> --!>
-			    <option value="trabajos">💼 Rutina para ir al trabajo</option>
-			    <option value="pipi">🚽 Rutina para hacer pipi</option> <!-- Corregido: Opción lista -->
+          <option value="trabajo">💼 Rutina para ir al trabajo</option>
+		      <option value="trabajos">🔨 ¿Qué hacer en el trabajo?</option> 
+			    <option value="pipi">🚽 Rutina para hacer pipi</option> 
 			    <option value="popo">🚽 Rutina para hacer popo</option>
-			    <!--<option value="Bañarse">🚿 Rutina para Bañarse</option>
+			    <option value="bañarse">🚿 Rutina para Bañarse</option>
 			    <option value="vestirse">👕 Rutina para Vestirse</option>	
-			    <option value="comer">👕 Rutina para comer</option>	
-			    <option value="cubierto">👕 Rutina para el uso de cubiertos</option>	
-			    <option value="bus">👕 viajar en bus</option>	
-			    <option value="compras">👕 vamos de compras</option>	
-			    <option value="supermercado">👕 vamos al supermercado</option>	
-			    <option value="restaurant">👕 vamos a un restaurant</option>	
-			    <option value="avion">👕 viajar en avión</option>	
-			    <option value="corte">👕 Corte de cabello</option>	
-			    <option value="tarea">👕 Hacer Tarea</option>	
-			    <option value="espera">👕 ¿Qué es esperar?</option>
-			    <option value="esperar">👕 ¿Qué hacer cuando esperas?</option>
+          <option value="corte">💇‍♂️ Rutina para ir a la peluquería</option>	
+			    <option value="comer">🥪 Rutina para comer</option>	
+			    <option value="cubierto">🍴 Rutina para el uso de cubiertos</option>
+			   <option value="bus">🚌 viajar en bus</option>	
+			    <option value="avion">✈️ viajar en avión</option>	
+			    <option value="compras">🛍️ vamos de compras</option>	
+			    <option value="supermercado">🛒 vamos al supermercado</option>	
+			   <!--  <option value="restaurant">🛎️ vamos a un restaurant</option>	
+          <option value="cine">🎥 vamos al cine</option>	
+          <option value="helado">🍧 vamos a comer helado</option>	
+          <option value="paseo">⛱️ vamos de paseo</option>
+			    <option value="espera">⏰ ¿Qué es esperar?</option>
+			    <option value="esperar">⌛ ¿Qué hacer cuando esperas?</option>
 			    <option value="nina">👕 Cuidar tus partes intimas NIÑA-MUJER</option>
 			    <option value="nino">👕 Cuidar tus partes intimas NIÑO-HOMBRE</option>			
 			    <option value="menstruacion">👕 ¿Qué es la menstruación?</option>
@@ -53,7 +56,10 @@
 			    <option value="eyaculacion">👕 ¿Qué es la eyaculación?</option>
 			    <option value="eyacular">👕 ¿Qué hacer cuando eyaculas?</option>
 			    <option value="masturbacion">👕 ¿Qué hacer cuando te masturbas?</option>
-			    <option value="dormir">👕 Rutina para ir a dormir</option>-->
+			    <option value="dormir">👕 Rutina para ir a dormir</option>
+          <option value="misa">👕 Rutina para misa</option>
+          <option value="confesar">👕 Rutina para confesarme</option>
+          <option value="dormir">👕 ¿Cómo portarme durante la misa?</option>-->
 		    </select>
 	    </div>
 	  		
@@ -91,11 +97,23 @@
   <script>
     // Base de datos de historias predefinidas (IDs reales de pictogramas de ARASAAC)
    const baseHistorias = {
+      cara: {
+        explicacion: "Esta historia social guia en la limpieza de nuestra cara .",
+        pasos: [
+		      { palabra: "abrir llave", id: 11737 },
+          { palabra: "mojar cara", id: 34775 },
+          { palabra: "enjabonar cara", id: 31991 },
+          { palabra: "sacar jabon", id: 34775 },
+          { palabra: "cerrar llave", id: 11739 },
+          { palabra: "Secar cara", id: 28507 }
+        ]
+      },
       manos: {
         explicacion: "Esta historia social guia en la limpieza de nuestras manos .",
         pasos: [
 		      { palabra: "Mojarse las manos", id: 8975 },
           { palabra: "Colocar Jabón", id: 29034 },
+          { palabra: "enjabonar las manos", id: 36910 },
           { palabra: "Quitarse el Jabón", id: 8975 },
           { palabra: "Secar las manos", id: 37049 }
         ]
@@ -123,7 +141,7 @@
 		      { palabra: "Cepillarse los dientes", id: 31880 },
 		      { palabra: "Peinarse", id: 2512 },
           { palabra: "Colocarse la Mochila", id: 38265 },
-		      { palabra: "caminar", id: 32214 },
+		      { palabra: "caminar", id: 38917 },
           { palabra: "Escuela", id: 3082 }
         ]
       },
@@ -138,13 +156,16 @@
 		      { palabra: "participar", id: 9034 },
           { palabra: "ir al receso", id: 28689 },
 		      { palabra: "merendar", id: 28835 },
+          { palabra: "tomar agua", id: 2276 },
+          { palabra: "ir al baño", id: 28213 },
           { palabra: "jugar", id: 37074 },
 		      { palabra: "volver a tu sala", id: 28687 },
 		      { palabra: "sentarse", id: 31041 },		  
 		      { palabra: "hacer tarea", id: 2387 },
 		      { palabra: "participar", id: 9034 },
+          { palabra: "ver hora de salida", id: 37370 },
 		      { palabra: "decir adios", id: 6009 },
-		      { palabra: "volver a casa", id: 32214 }
+		      { palabra: "volver a casa", id: 39738 }
         ]
       },
 	   trabajo: {
@@ -156,6 +177,7 @@
           { palabra: "Desayunar", id: 4625 },		  
 		      { palabra: "Cepillarse los dientes", id: 31880 },
 		      { palabra: "Peinarse", id: 2512 },
+          { palabra: "Colocar bolso/mochila", id: 38265 },
 		      { palabra: "tomar transporte", id: 37194 },
           { palabra: "Trabajo", id: 16087 }
         ]
@@ -163,18 +185,19 @@
 	   trabajos: {
         explicacion: "Guía de anticipación diaria de como comportarnos en el trabajo. Ayuda a entender el contexto laboral.",
         pasos: [
-          { palabra: "saludar", id: 31857 },
-		      { palabra: "guardar mochila", id: 38582 },
-		      { palabra: "trabajar", id: 2781 },
-          { palabra: "a las 13:00 almorzar", id: 2781 },		  
-		      { palabra: "descansar 10 min.", id: 31880 },
-		      { palabra: "trabajar", id: 2512 },
-		      { palabra: "tomar agua", id: 32214 },
-		      { palabra: "trabajar", id: 2781 },
-          { palabra: "ir al baño", id: 3082 },
-		      { palabra: "trabajar", id: 2781 },
-		      { palabra: "decir adios", id: 31857 },
-		      { palabra: "volver a casa", id: 2512 }
+          { palabra: "saludar", id: 6009 },
+		      { palabra: "guardar mochila", id: 37896 },
+		      { palabra: "trabajar", id: 16087 },
+          { palabra: "a las 13:00 almorzar", id: 28206 },		  
+		      { palabra: "descansar 20 min.", id: 24503 },
+		      { palabra: "trabajar", id: 16087 },
+		      { palabra: "tomar agua", id: 2276 },
+		      { palabra: "trabajar", id: 16087 },
+          { palabra: "ir al baño", id: 28213 },
+		      { palabra: "trabajar", id: 16087 },
+          { palabra: "ver hora de salida", id: 37370 },
+		      { palabra: "decir adios", id: 6009 },
+		      { palabra: "volver a casa", id: 32214 }
         ]
       },
       // NUEVO: Agregamos la base de datos para la rutina de Pipí con IDs reales de ARASAAC
@@ -186,8 +209,9 @@
 		      { palabra: "Bajarse la ropa", id: 10143 },
 		      { palabra: "Hacer pipi", id: 3429 },
           { palabra: "Usar papel", id: 10147 },
-		      { palabra: "limpiar zona", id: 36652 },
+		      { palabra: "limpiar zona", id: 36652 },          
 		      { palabra: "Tirar papel", id: 37084 },
+          { palabra: "Subirse la ropa", id: 10180 },
 		      { palabra: "bajar cadena", id: 39547 },
           { palabra: "Lavar manos", id: 29210 }
         ]
@@ -200,8 +224,9 @@
 		      { palabra: "Bajarse la ropa", id: 10143 },
 		      { palabra: "Hacer popo", id: 35348 },
           { palabra: "Usar papel", id: 10147 },
-		      { palabra: "limpiar zona", id: 10170 },
+		      { palabra: "limpiar zona", id: 10170 },          
 		      { palabra: "Tirar papel", id: 37084 },
+          { palabra: "subirse la ropa", id: 10180 },
 		      { palabra: "bajar cadena", id: 39547 },
           { palabra: "Lavar manos", id: 29210 }
         ]
@@ -209,36 +234,114 @@
 	    bañarse: {
         explicacion: "Secuencia visual de apoyo para bañarse. Y fomentar la independencia.",
         pasos: [
-          { palabra: "buscar la toalla", id: 28614 },
-          { palabra: "entrar a baño", id: 2430 },
+          { palabra: "buscar la toalla", id: 29052 },
+          { palabra: "entrar a baño", id: 6491 },
 		      { palabra: "quitarse la ropa", id: 10143 },
-		      { palabra: "entrar a la ducha", id: 3429 },
-		      { palabra: "abrir la llave", id: 3429 },
-          { palabra: "mojarse", id: 10147 },
-		      { palabra: "ponerse jabon", id: 36652 },
-		      { palabra: "quitarse el Jabón", id: 39547 },
-		      { palabra: "ponerse shampoo", id: 37084 },
-	        { palabra: "quitarse el Jabón", id: 39547 },
-		      { palabra: "cerrar la llave", id: 29210 },
-		      { palabra: "agarrar la toalla", id: 29210 },
-		      { palabra: "secarse", id: 29210 },
-			    { palabra: "colcocarse la toalla", id: 29210 },
-			    { palabra: "salir del baño", id: 29210 }
+		      { palabra: "entrar a la ducha", id: 38582 },
+          { palabra: "mojarse", id: 37364 },
+		      { palabra: "lavar tu cuerpo", id: 21822 },
+		      { palabra: "quitarse el Jabón", id: 37364 },
+		      { palabra: "lavarse cabello", id: 8615 },
+	        { palabra: "quitarse el shampoo", id: 8976 },
+		      { palabra: "agarrar la toalla", id: 29052 },
+		      { palabra: "secarse", id: 22104 },
+			    { palabra: "colcocarse la toalla", id: 22106 },
+			    { palabra: "salir del baño", id: 6606 }
         ]
       },
 	    vestirse: {
         explicacion: "Secuencia visual de apoyo para vestirse. Y formentar la indepedencia.",
         pasos: [
-          { palabra: "buscar la ropa", id: 28614 },
-          { palabra: "desodorante", id: 2430 },
-		      { palabra: "ropa interior", id: 10143 },
-		      { palabra: "calcetines", id: 3429 },
-          { palabra: "pantalon, Short o falda" ,id: 10147 },
-		      { palabra: "camisa o vestido", id: 36652 },
-		      { palabra: "zapatos", id: 37084 },
-		      { palabra: "peinarse", id: 39547 }
+          { palabra: "buscar la ropa", id: 7233 },
+          { palabra: "desodorante", id: 39672 },
+		      { palabra: "ropa interior", id: 30154 },
+		      { palabra: "calcetines", id: 2298 },
+          { palabra: "pantalon, Short o falda" ,id: 10180 },
+		      { palabra: "camisa o vestido", id: 2781 },
+		      { palabra: "zapatos", id: 17026 },
+		      { palabra: "peinar", id: 2512 }
         ]
-      }
+      },
+      corte: {
+        explicacion: "Secuencia visual de apoyo para ir a la peluquería. Y formentar la indepedencia.",
+        pasos: [
+          { palabra: "caminar", id: 32214 },
+          { palabra: "peluqueria", id: 2849 },
+		      { palabra: "esperar turno", id: 39062 },
+		      { palabra: "sentar en la silla", id: 2801 },
+          { palabra: "colocar capa" ,id: 34701 },
+		      { palabra: "cortar cabello", id: 27696 },
+		      { palabra: "pagar", id: 39710 },
+          { palabra: "volver a casa", id: 32214 }
+        ]
+      },
+        cubierto: {
+        explicacion: "Secuencia visual de apoyo para saber usar los cubiertos. Y formentar la indepedencia.",
+        pasos: [
+          { palabra: "cuchara", id: 2362 },
+          { palabra: "para sopa y postre", id: 2349 },
+          { palabra: "tenedor", id: 2588 },
+		      { palabra: "para pinchar", id: 36658 },
+		      { palabra: "cuchillo", id: 4931 },
+          { palabra: "para cortar alimentos" ,id: 36632 },
+		      { palabra: "plato", id: 2532 },
+		      { palabra: "para colocar comida", id: 7219 },
+          { palabra: "vaso", id: 4768 },
+		      { palabra: "para tomar", id: 2276 },
+          { palabra: "servilleta", id: 2569 },
+		      { palabra: "para limpiar", id: 17271 }
+        ]
+      },
+        comer: {
+        explicacion: "Secuencia visual de apoyo para comer. Y formentar la indepedencia.",
+        pasos: [
+          { palabra: "lavar manos", id: 29210 },
+          { palabra: "servir comida", id: 36965 },
+          { palabra: "sentarse a la mesa", id: 38944 },
+		      { palabra: "usar cubiertos", id: 8545 },
+		      { palabra: "comer", id: 2349 },
+          { palabra: "limpiar boca" ,id: 17271 },
+		      { palabra: "recoger cubiertos", id: 5558 },
+          { palabra: "lavar cubiertos", id: 34826 },
+		      { palabra: "cepillarse dientes", id: 31880 }
+        ]
+      },
+        bus: {
+        explicacion: "Secuencia visual de apoyo para comer. Y formentar la indepedencia.",
+        pasos: [
+          { palabra: "ir a la parada o terminal", id: 2499 },
+          { palabra: "esperar", id: 25078 },
+		      { palabra: "subir al bus", id: 36594 },
+		      { palabra: "pagar", id: 39710 },
+          { palabra: "esperar y estar atento" ,id: 36960 },
+          { palabra: "pedir parada", id: 4686 },
+		      { palabra: "bajar del bus", id: 36844 }
+        ]
+      },
+      avion: {
+        explicacion: "Secuencia visual de apoyo para comer. Y formentar la indepedencia.",
+        pasos: [
+          { palabra: "preparar maletas", id: 38584 },
+          { palabra: "guardar pasaporte", id: 6171 },
+          { palabra: "guardar dinero y tarjetas", id: 2689 },
+		      { palabra: "vestirte", id: 8545 },
+		      { palabra: "ir al aeropuerto 4 horas antes", id: 3053 },
+          { palabra: "esperar y hacer chek in" ,id: 17271 },
+		      { palabra: "dirigirte a migración", id: 5558 },
+          { palabra: "mostrar pasaporte y ticket", id: 38292 },
+		      { palabra: "subir maletas para revisión", id: 31880 },
+          { palabra: "buscar puerta de embarque", id: 31880 },
+          { palabra: "esperar para abordar", id: 31880 },
+          { palabra: "al abordar mostrar pasaporte y ticket", id: 31880 },
+          { palabra: "subir al avion", id: 2264 },
+          { palabra: "buscar número de silla", id: 31880 },
+          { palabra: "abrocharse el cinturón", id: 31880 },
+          { palabra: "esperar hsata llegar", id: 31880 },
+          { palabra: "bajar del avión", id: 31880 },
+          { palabra: "mostrar pasaporte", id: 38292 },
+          { palabra: "retirar maletas", id: 31880 }          
+        ]
+      }    
     };
 
     let pasosActuales = [];
