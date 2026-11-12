@@ -213,3 +213,61 @@ h1 { font-size: 2em; margin-bottom: 5px; color: #2c3e50; }
   margin: 0 0 4px 0;
   letter-spacing: -0.5px;
 }
+
+/* 1. Asegura que el cuerpo crezca hacia abajo sin recortes */
+html, body {
+  height: auto !important;
+  min-height: 100vh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  overflow-x: hidden !important;
+}
+
+/* 2. Anula cualquier desplazamiento vertical (top: 60% / translate) del contenedor */
+.contenedor-accesos,
+.pantalla-corporativa {
+  position: static !important;
+  top: auto !important;
+  left: auto !important;
+  transform: none !important;
+  height: auto !important;
+  min-height: auto !important;
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+}
+
+/* 3. La tarjeta del formulario fluye normalmente */
+.container {
+  position: relative !important;
+  margin: 20px auto !important;
+  height: auto !important;
+  overflow: visible !important;
+}
+
+/* 4. El pie de página queda siempre debajo del botón Enviar */
+.bloque-inferior-textos {
+  position: relative !important;
+  bottom: auto !important;
+  left: auto !important;
+  transform: none !important;
+  margin-top: 25px !important;
+  padding: 15px 10px 25px 10px !important;
+  width: 100% !important;
+  clear: both !important;
+}
+
+/* 5. Ajuste para que el botón "Volver al inicio" no flote encima en celular */
+@media (max-width: 600px) {
+  .accesos-superiores-izquierda {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    margin: 0 auto 15px auto !important;
+    width: 100% !important;
+    justify-content: center !important;
+  }
+}
