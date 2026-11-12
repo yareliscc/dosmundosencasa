@@ -432,6 +432,7 @@ mostrarPasoSeleccionado();
   const tituloHistoria = selector.options[selector.selectedIndex].text;
   const explicacion = txtExplicacion.value;
 
+  const urlLogo = new URL('logo_pie.jpg', window.location.href).href;
   // 1. Eliminar iframe anterior si existe
   const iframeViejo = document.getElementById('iframe-impresion');
   if (iframeViejo) iframeViejo.remove();
@@ -465,54 +466,18 @@ mostrarPasoSeleccionado();
     <head>
       <meta charset="UTF-8">
       <title>${tituloHistoria}</title>
-      <style>
-        body {
-          font-family: Arial, sans-serif;
-          color: #2c3e50;
-          margin: 10mm;
-          text-align: center;
-        }
-        h2 { margin: 0 0 8px 0; font-size: 18pt; }
-        .explicacion { font-size: 11pt; color: #555; margin-bottom: 15px; }
-        .tarjeta {
-          display: inline-block;
-          vertical-align: top;
-          width: 120px;
-          margin: 6px;
-          padding: 8px;
-          border: 1px solid #ccc;
-          border-radius: 12px;
-          page-break-inside: avoid;
-          break-inside: avoid;
-        }
-        .numero {
-          width: 22px;
-          height: 22px;
-          line-height: 22px;
-          background: #2c3e50;
-          color: white;
-          border-radius: 50%;
-          font-weight: bold;
-          font-size: 11px;
-          margin: 0 auto 5px auto;
-          -webkit-print-color-adjust: exact;
-          print-color-adjust: exact;
-        }
-        .tarjeta img {
-          width: 90px;
-          height: 90px;
-          object-fit: contain;
-        }
-        .tarjeta p {
-          margin: 6px 0 0 0;
-          font-weight: bold;
-          font-size: 10pt;
-        }
-      </style>
+      <link rel="stylesheet" href="impresion.css">     
     </head>
     <body>
-      <h2>${tituloHistoria}</h2>
-      <p class="explicacion">${explicacion}</p>
+      <div class="cabecera-impresion">
+        <div class="celda-logo">
+          <img src="${urlLogo}" alt="Logo" class="logo-impresion" onerror="this.parentElement.style.display='none'">
+        </div>
+        <div class="celda-texto">
+          <h2>${tituloHistoria}</h2>
+          <p class="explicacion">${explicacion}</p>
+        </div>
+      </div>
       <div>${tarjetasHTML}</div>
     </body>
     </html>

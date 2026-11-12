@@ -1,0 +1,74 @@
+       body {
+          font-family: Arial, sans-serif;
+          color: #2c3e50;
+          margin: 10mm;
+          text-align: center;
+        }
+        /* Estructura de tabla para máxima compatibilidad en impresoras móviles */
+        .cabecera-impresion {
+          display: table;
+          width: 100%;
+          margin-bottom: 15px;
+          border-bottom: 2px solid #ececec;
+          padding-bottom: 10px;
+          text-align: left;
+        }
+        .celda-logo {
+          display: table-cell;
+          vertical-align: middle;
+          width: 75px;
+          padding-right: 15px;
+        }
+        .logo-impresion {
+          max-height: 65px;
+          max-width: 75px;
+          width: auto;
+          object-fit: contain;
+        }
+        .celda-texto {
+          display: table-cell;
+          vertical-align: middle;
+        }
+        h2 { 
+          margin: 0 0 4px 0; 
+          font-size: 17pt; 
+        }
+        .explicacion { 
+          font-size: 10.5pt; 
+          color: #555; 
+          margin: 0; 
+        }
+        .tarjeta {
+          display: inline-block;
+          vertical-align: top;
+          width: 120px;
+          margin: 6px;
+          padding: 8px;
+          border: 1px solid #ccc;
+          border-radius: 12px;
+          page-break-inside: avoid;
+          break-inside: avoid;
+        }
+        .numero {
+          width: 22px;
+          height: 22px;
+          line-height: 22px;
+          background: #2c3e50;
+          color: white;
+          border-radius: 50%;
+          font-weight: bold;
+          font-size: 11px;
+          margin: 0 auto 5px auto;
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+        .tarjeta img {
+          width: 90px;
+          height: 90px;
+          object-fit: contain;
+        }
+        .tarjeta p {
+          margin: 6px 0 0 0;
+          font-weight: bold;
+          font-size: 10pt;
+        }
