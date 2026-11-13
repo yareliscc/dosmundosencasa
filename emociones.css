@@ -10,6 +10,8 @@
   border: 1px solid #f0f0f5;
   text-align: center;
   box-sizing: border-box;
+  justify-content: space-between;
+  gap: 6px; /* Un poco más junto para que quepan los 4 holgados */
 }
 
 .titulo-emociones {
@@ -26,7 +28,7 @@
 }
 
 .btn-emocion {
-  flex: 1;
+  flex: 1 1 0;
   background: #ffffff;
   border: 2px solid #eaeaea;
   border-radius: 14px;
@@ -36,6 +38,8 @@
   flex-direction: column;
   align-items: center;
   transition: all 0.2s ease;
+  min-width: 0; /* Evita que la palabra "Asustado" empuje el botón hacia afuera */
+  padding: 8px 2px;
 }
 
 .btn-emocion:hover, .btn-emocion.activa {
@@ -52,11 +56,10 @@
 }
 
 .btn-emocion span {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: bold;
   color: #34495e;
 }
-
 /* Mensaje de regulación que aparece al tocar una emoción */
 .respuesta-emocion {
   margin-top: 12px;
@@ -104,8 +107,8 @@
 }
 
 .video-emocion {
-  width: 58px;
-  height: 58px;
+  width: 50px;
+  height: 50px;
   object-fit: contain;
   margin-bottom: 5px;
   border-radius: 10px;
