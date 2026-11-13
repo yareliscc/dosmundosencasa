@@ -1,0 +1,114 @@
+/* --- TERMÓMETRO DE EMOCIONES RÁPIDO --- */
+.caja-emociones {
+  background: rgba(255, 255, 255, 0.92);
+  width: 92%;
+  max-width: 430px;
+  margin: 12px auto;
+  padding: 18px 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid #f0f0f5;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.titulo-emociones {
+  color: #2c3e50;
+  font-size: 1.05rem;
+  font-weight: bold;
+  margin: 0 0 12px 0;
+}
+
+.grid-emociones {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.btn-emocion {
+  flex: 1;
+  background: #ffffff;
+  border: 2px solid #eaeaea;
+  border-radius: 14px;
+  padding: 8px 4px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+.btn-emocion:hover, .btn-emocion.activa {
+  border-color: #8e1c6a;
+  background: #fdf2f8;
+  transform: translateY(-2px);
+}
+
+.btn-emocion img {
+  width: 55px;
+  height: 55px;
+  object-fit: contain;
+  margin-bottom: 5px;
+}
+
+.btn-emocion span {
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #34495e;
+}
+
+/* Mensaje de regulación que aparece al tocar una emoción */
+.respuesta-emocion {
+  margin-top: 12px;
+  padding: 10px 14px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  color: #2c3e50;
+  line-height: 1.4;
+  display: none; /* Oculto hasta que el niño elija una emoción */
+  border-left: 4px solid #8e1c6a;
+  text-align: left;
+}
+
+/* --- BOTÓN COMPARTIR CON OTRA FAMILIA --- */
+.btn-compartir-familia {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 92%;
+  max-width: 430px;
+  margin: 12px auto;
+  padding: 13px 20px;
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  color: white;
+  font-weight: bold;
+  font-size: 0.95rem;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.25);
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+}
+
+.btn-compartir-familia:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
+}
+
+.btn-emocion.activa img {
+  transform: scale(1.15);
+  transition: transform 0.2s ease;
+}
+
+.video-emocion {
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  pointer-events: none; /* Evita que al tocar el video se abra el reproductor del celular */
+}
+

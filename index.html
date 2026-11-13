@@ -6,6 +6,7 @@
   <title>Crianza en dos mundos - Inicio</title>
   <link rel="stylesheet" href="main.css">
   <link rel="stylesheet" href="inicio.css">
+  <link rel="stylesheet" href="emociones.css">
 </head>
 <body>
 
@@ -53,6 +54,34 @@
 		</a>	
 	</div>
 	  </div>
+	  	<!-- TERMÓMETRO DE EMOCIONES RÁPIDO -->
+<div class="caja-emociones">
+  <p class="titulo-emociones">💛 ¿Cómo te sientes hoy?</p>
+  
+  <div class="grid-emociones">
+    <button type="button" class="btn-emocion" onclick="seleccionarEmocion(this, 'feliz')">
+      <video class="video-emocion" src="feliz.mp4" muted loop playsinline preload="auto"></video>
+      <span>Feliz</span>
+    </button>
+
+    <button type="button" class="btn-emocion" onclick="seleccionarEmocion(this, 'triste')">
+      <video class="video-emocion" src="triste.mp4" muted loop playsinline preload="auto"></video>
+      <span>Triste</span>
+    </button>
+
+    <button type="button" class="btn-emocion" onclick="seleccionarEmocion(this, 'enojado')">
+      <video class="video-emocion" src="enojado.mp4" muted loop playsinline preload="auto"></video>
+      <span>Enojado</span>
+    </button>
+
+    <button type="button" class="btn-emocion" onclick="seleccionarEmocion(this, 'asustado')">
+      <video class="video-emocion" src="asustado.mp4" muted loop playsinline preload="auto"></video>
+      <span>Asustado</span>
+    </button>
+  </div>
+
+  <div id="caja-respuesta-emocion" class="respuesta-emocion"></div>
+</div>
 	<div class="caja-botones-frase">  
 	<div class="familia">
     
@@ -76,10 +105,21 @@
 					"En casa desde que trabajamos la anticipación, han bajado las crisis. Hay dias de días. Pero si nos ha funcionado."
 				</p>
 				<span class="autor">— @ycccanelon</span>
-			</div>        
+			</div> 
+			<!-- Testimonio 3 -->
+			<div class="testimonio-item">
+				<p class="testimonio">
+					"Cada paso es espectacular me encanta verlos crecer aunque sea a la distancia..."
+				</p>
+				<span class="autor">— @adry_original_girl</span>
+			</div>             
 		</div>
 	</div>
 	</div>
+<!-- BOTÓN COMPARTIR CON OTRA FAMILIA -->
+<button type="button" class="btn-compartir-familia" onclick="compartirConFamilia()">
+  <span>💚 Compártenos con otra familia</span>
+</button>
     </main>
 		<!-- Bloque de Frase Inspiradora -->
 		<div class= "frase-motivo">
@@ -101,6 +141,78 @@
         enlace.removeAttribute('target');
       });
     }
+
+
+  const guiaEmociones = {
+    feliz: {
+      texto: "¡Qué alegría que te sientas feliz! Vamos a sonreir",
+      color: "#27ae60"
+    },
+    triste: {
+      texto: "Está bien sentirse triste. ¿Quieres un abrazo?",
+      color: "#2980b9"
+    },
+    enojado: {
+      texto: "Sientes mucho enojo. Respiremos profundo poco a poco...",
+      color: "#c0392b"
+    },
+    asustado: {
+      texto: "Estás a salvo. Veamos que va a pasar",
+      color: "#8e44ad"
+    }
+  };
+
+  function seleccionarEmocion(boton, tipo) {
+    // Marcar botón activo
+
+	
+    document.querySelectorAll('.btn-emocion').forEach(b => b.classList.remove('activa'));
+    boton.classList.add('activa');
+
+  // 2. Activar el botón seleccionado y reproducir solo su video
+  boton.classList.add('activa');
+  const videoActivo = boton.querySelector('video');
+  if (videoActivo) {
+    videoActivo.play().catch(() => {});
+  }
+
+    // Mostrar mensaje de calma
+    const info = guiaEmociones[tipo];
+    const cajaRespuesta = document.getElementById('caja-respuesta-emocion');
+    cajaRespuesta.style.display = 'block';
+    cajaRespuesta.style.borderLeftColor = info.color;
+    cajaRespuesta.textContent = info.texto;
+
+    // Leer en voz alta con síntesis de voz amigable
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+      const mensaje = new SpeechSynthesisUtterance(info.texto);
+      mensaje.lang = 'es-ES';
+      mensaje.rate = 0.85;
+      window.speechSynthesis.speak(mensaje);
+    }
+  }
+
+  function compartirConFamilia() {
+    const titulo = "Crianza en dos mundos";
+    const texto = "Te comparto esta herramienta gratuita con Herramientas para apoyar rutinas en casa:";
+    const url = window.location.href;
+
+    // Si el celular soporta compartir nativo (WhatsApp, Instagram, Telegram, etc.)
+    if (navigator.share) {
+      navigator.share({
+        title: titulo,
+        text: texto,
+        url: url
+      }).catch(() => {});
+    } else {
+      // Respaldo directo a WhatsApp Web / App si se abre desde computadora
+      const mensajeWhatsApp = encodeURIComponent(`${texto} ${url}`);
+      window.open(`https://wa.me{mensajeWhatsApp}`, '_blank');
+    }
+  }
+
+
   </script>
 </body>
 </html>
