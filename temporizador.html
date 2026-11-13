@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Temporizador - Crianza en dos mundos</title>
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="temporizador.css">
+</head>
+<body>
+      <!-- Botón flotante para regresar al inicio -->
+    <nav class="accesos-superiores-izquierda">
+      <a href="index.html"  class="link-institucional">
+        <img src="images.jpg" alt="Volver al inicio" >
+        <span>Volver al inicio</span>
+      </a>
+    </nav>
+<div class="pantalla-corporativa">
+    <!-- Bloque de contenido traslúcido para el Blog -->
+    <main>
+      <div class="caja-texto-institucional">
+        <div id="timer-principal"></div>
+        <script src="temporizador.js"></script>
+      
+      </div>
+    </main>
+
+    <!-- Pie de página fijo idéntico al de tu inicio y quiénes somos -->
+    <footer class="bloque-inferior-textos">
+      <h1 class="texto-marca-titulo">Crianza en dos mundos &copy; 2026</h1>
+      <p class="texto-marca-eslogan">Mismo amor, dos mundos</p>
+      <p class="texto-marca-red">@dosmundosencasa</p>
+    </footer>
+
+  </div>
+  <script>
+  crearTemporizadorVisual('timer-principal');
+</script>
+</body>
+</html>
+    
