@@ -22,32 +22,40 @@
       <p class="caja-botones-centro">Selecciona una plantilla para cargar una historia automáticamente</p>
 	 
 	    <div class="contenedor-combo">
-		    <label for="selector-historia">📖 Elige una Historia Social Predefinida:</label>
+          <label>🔍 Filtrar por categoría:</label>
+  
+  <div class="filtros-categorias">
+    <button type="button" class="btn-filtro activo" onclick="filtrarRutinas('todas', this)">Todas</button>
+    <button type="button" class="btn-filtro" onclick="filtrarRutinas('higiene', this)">🧼 Higiene</button>
+    <button type="button" class="btn-filtro" onclick="filtrarRutinas('autonomia', this)">👕 Autonomía</button>
+    <button type="button" class="btn-filtro" onclick="filtrarRutinas('salidas', this)">🎒 Salidas</button>
+   <!-- <button type="button" class="btn-filtro" onclick="filtrarRutinas('emociones', this)">💛 Emociones</button>-->
+  </div>
+		    <label for="selector-historia">📖 Elige una Historia Social:</label>
 		    <select id="selector-historia" onchange="cargarHistoriaAutomatica()">
 			    <option value="">-- Selecciona una opción --</option>
-          <option value="cara">🧖‍♀️ Lavarse la cara</option>
- 			    <option value="manos">🧼 Lavarse las manos</option>
-			    <option value="dientes">🪥 Cepillarse los dientes</option>
-			    <option value="colegio">🎒 Rutina para ir a la escuela</option>
-			    <option value="escuela">📝 ¿Qué hacer en el colegio?</option>
-          <option value="trabajo">💼 Rutina para ir al trabajo</option>
-		      <option value="trabajos">🔨 ¿Qué hacer en el trabajo?</option> 
-			    <option value="pipi">🚽 Rutina para hacer pipi</option> 
-			    <option value="popo">🚽 Rutina para hacer popo</option>
-			    <option value="bañarse">🚿 Rutina para Bañarse</option>
-			    <option value="vestirse">👕 Rutina para Vestirse</option>	
-          <option value="corte">💇‍♂️ Rutina para ir a la peluquería</option>	
-			    <option value="comer">🥪 Rutina para comer</option>	
-			    <option value="cubierto">🍴 Rutina para el uso de cubiertos</option>
-			   <!-- <option value="bus">🚌 viajar en bus</option>	
-			    <option value="avion">✈️ viajar en avión</option>	
-			    <option value="compras">👕 vamos de compras</option>	
-			    <option value="supermercado">👕 vamos al supermercado</option>	
+          <option value="cara" data-categoria="higiene">🧖‍♀️ Lavarse la cara</option>
+ 			    <option value="manos" data-categoria="higiene">🧼 Lavarse las manos</option>
+			    <option value="dientes" data-categoria="higiene">🪥 Cepillarse los dientes</option>
+			    <option value="colegio" data-categoria="salidas">🎒 Rutina para ir a la escuela</option>
+			    <option value="escuela" data-categoria="salidas">📝 ¿Qué hacer en el colegio?</option>
+          <option value="trabajo" data-categoria="salidas">💼 Rutina para ir al trabajo</option>
+		      <option value="trabajos" data-categoria="salidas">🔨 ¿Qué hacer en el trabajo?</option> 
+			    <option value="pipi" data-categoria="higiene">🚽 Rutina para hacer pipi</option> 
+			    <option value="popo" data-categoria="higiene">🚽 Rutina para hacer popo</option>
+			    <option value="bañarse" data-categoria="higiene">🚿 Rutina para Bañarse</option>
+			    <option value="vestirse" data-categoria="autonomia">👕 Rutina para Vestirse</option>	
+          <option value="corte" data-categoria="higiene">💇‍♂️ Rutina para ir a la peluquería</option>	
+			    <option value="comer" data-categoria="autonomia">🥪 Rutina para comer</option>	
+			    <option value="cubierto" data-categoria="autonomia">🍴 Rutina para el uso de cubiertos</option>
+			    <option value="bus" data-categoria="salidas">🚌 viajar en bus</option>	
+			    <option value="abordar un avion" data-categoria="salidas">✈️ viajar en avión</option>	
+			    <option value="compras" data-categoria="salidas">🛍️ vamos de compras</option>	
+			    <!--   <option value="supermercado">👕 vamos al supermercado</option>	
 			    <option value="restaurant">👕 vamos a un restaurant</option>	
           <option value="cine">👕 vamos al cine</option>	
           <option value="helado">👕 vamos a comer helado</option>	
           <option value="paseo">👕 vamos de paseo</option>	
-			    <option value="tarea">👕 Hacer Tarea</option>	
 			    <option value="espera">👕 ¿Qué es esperar?</option>
 			    <option value="esperar">👕 ¿Qué hacer cuando esperas?</option>
 			    <option value="nina">👕 Cuidar tus partes intimas NIÑA-MUJER</option>
@@ -161,6 +169,7 @@
 		      { palabra: "sentarse", id: 31041 },		  
 		      { palabra: "hacer tarea", id: 2387 },
 		      { palabra: "participar", id: 9034 },
+          { palabra: "ver hora de salida", id: 37370 },
 		      { palabra: "decir adios", id: 6009 },
 		      { palabra: "volver a casa", id: 32214 }
         ]
@@ -293,16 +302,67 @@
         explicacion: "Secuencia visual de apoyo para comer. Y formentar la indepedencia.",
         pasos: [
           { palabra: "lavar manos", id: 29210 },
-          { palabra: "servir comida", id: 32214 },
-          { palabra: "sentarse a la mesa", id: 2849 },
-		      { palabra: "usar cubiertos", id: 39062 },
-		      { palabra: "comer", id: 2801 },
+          { palabra: "servir comida", id: 36965 },
+          { palabra: "sentarse a la mesa", id: 38944 },
+		      { palabra: "usar cubiertos", id: 8545 },
+		      { palabra: "comer", id: 2349 },
           { palabra: "limpiar boca" ,id: 17271 },
-		      { palabra: "recoger cubiertos", id: 27696 },
-          { palabra: "lavar cubiertos", id: 27696 },
-		      { palabra: "cepillarse dientes", id: 31880 }
+		      { palabra: "recoger cubiertos", id: 5558 },
+          { palabra: "lavar platos y cubiertos", id: 34826 },
+		      { palabra: "cepillarse dientes", id: 6971 }
         ]
-      }
+      },
+        bus: {
+        explicacion: "Secuencia visual de apoyo tomar el bus. Y formentar la indepedencia.",
+        pasos: [
+          { palabra: "vestirse", id: 2781 },
+          { palabra: "tomar mochila", id: 38265 },
+          { palabra: "cerrar la casa", id: 37200 },
+		      { palabra: "caminar a la parada", id: 32214 },
+		      { palabra: "esperar", id: 37194 },
+          { palabra: "hacer fila para subir" ,id: 36845 },
+          { palabra: "subir al bus" ,id: 36594 },
+		      { palabra: "pagar", id: 29070 },
+          { palabra: "esperar de pie o sentado", id: 36960 },
+		      { palabra: "pedir parada", id: 28089 },
+          { palabra: "bajar", id: 36843 }
+        ]
+      },
+        avion: {
+        explicacion: "Secuencia visual de apoyo para abordar un avión. Y formentar la indepedencia.",
+        pasos: [
+          { palabra: "preparar maleta", id: 38584 },
+          { palabra: "guardar pasaporte en mochila", id: 6171 },
+          { palabra: "guardar dinero en mochila", id: 4630 },
+		      { palabra: "vestirse", id: 2781 },
+          { palabra: "cerrar la casa", id: 37200 },
+		      { palabra: "ir al aeropuerto 4 horas antes", id: 3053 },
+          { palabra: "check in aerolinea" ,id: 39492 },
+		      { palabra: "pasar migración", id: 38292 },
+          { palabra: "ir a puerta de embarque", id: 39601 },
+		      { palabra: "pasaporte y ticket", id: 6171 },
+          { palabra: "ubicar número de asiento", id: 34677 },
+          { palabra: "guardar equipaje", id: 34661 },
+          { palabra: "colocar modo avión en celular o apagar", id: 34685 },
+          { palabra: "disfrutar viaje", id: 10188 },
+        ]
+      },
+        compras: {
+        explicacion: "Secuencia visual de apoyo para ir de compra. Y formentar la indepedencia.",
+        pasos: [
+          { palabra: "vestirse", id: 2781 },
+          { palabra: "guardar dinero en mochila", id: 4630 },
+          { palabra: "tomar mochila", id: 38265 },
+          { palabra: "cerrar la casa", id: 37200 },
+		      { palabra: "ir a la tienda", id: 4882 },
+		      { palabra: "buscar el producto", id: 32156 },
+          { palabra: "tomar el producto", id: 39414 },
+          { palabra: "hacer fila en caja" ,id: 7102 },
+		      { palabra: "pagar", id: 9014 },
+          { palabra: "guardar producto" ,id: 23849 },
+          { palabra: "volver a casa", id: 32214 }
+        ]
+      }      
     };
 
     let pasosActuales = [];
@@ -508,6 +568,38 @@ mostrarPasoSeleccionado();
       }
     });
   }
+}
+
+// Guardamos todas las opciones originales al cargar la página
+let opcionesOriginales = [];
+
+document.addEventListener('DOMContentLoaded', () => {
+  const select = document.getElementById('selector-historia');
+  if (select) {
+    opcionesOriginales = Array.from(select.querySelectorAll('option'));
+  }
+});
+
+function filtrarRutinas(categoria, botonActivo) {
+  // 1. Actualizar apariencia visual de los botones de filtro
+  document.querySelectorAll('.btn-filtro').forEach(btn => btn.classList.remove('activo'));
+  botonActivo.classList.add('activo');
+
+  // 2. Reconstruir el <select> solo con las opciones de la categoría elegida
+  const select = document.getElementById('selector-historia');
+  if (!select || opcionesOriginales.length === 0) return;
+
+  select.innerHTML = '';
+
+  opcionesOriginales.forEach(opcion => {
+    const catOpcion = opcion.getAttribute('data-categoria');
+    if (catOpcion === 'todas' || categoria === 'todas' || catOpcion === categoria) {
+      select.appendChild(opcion.cloneNode(true));
+    }
+  });
+
+  // 3. Dejar seleccionado el texto inicial "-- Selecciona una opción --"
+  select.selectedIndex = 0;
 }
 
   </script>

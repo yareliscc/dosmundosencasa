@@ -436,3 +436,39 @@ textarea {
     display: none !important;
   }
 }
+
+/* --- FILTROS POR CATEGORÍA --- */
+.filtros-categorias {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.btn-filtro {
+  background: #f1f2f6;
+  color: #2c3e50;
+  border: 1px solid #dcdde1;
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-size: 0.85em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-filtro:hover {
+  background: #e2e6ea;
+}
+
+.btn-filtro.activo {
+  background: #2c3e50;
+  color: #ffffff;
+  border-color: #2c3e50;
+}
+
+@media print {
+  .filtros-categorias {
+    display: none !important;
+  }
+}
