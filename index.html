@@ -162,12 +162,16 @@
     }
   };
 
-  function seleccionarEmocion(boton, tipo) {
-    // Marcar botón activo
-
-	
-    document.querySelectorAll('.btn-emocion').forEach(b => b.classList.remove('activa'));
-    boton.classList.add('activa');
+function seleccionarEmocion(boton, tipo) {
+  // 1. Quitar clase activa y pausar TODOS los videos dentro de cada botón
+  document.querySelectorAll('.btn-emocion').forEach(b => {
+    b.classList.remove('activa');
+    const vid = b.querySelector('video');
+    if (vid) {
+      vid.pause();
+      vid.currentTime = 0; // Regresa al primer fotograma quieto
+    }
+  });
 
   // 2. Activar el botón seleccionado y reproducir solo su video
   boton.classList.add('activa');
@@ -176,22 +180,22 @@
     videoActivo.play().catch(() => {});
   }
 
-    // Mostrar mensaje de calma
-    const info = guiaEmociones[tipo];
-    const cajaRespuesta = document.getElementById('caja-respuesta-emocion');
-    cajaRespuesta.style.display = 'block';
-    cajaRespuesta.style.borderLeftColor = info.color;
-    cajaRespuesta.textContent = info.texto;
+  // 3. Mostrar mensaje de calma
+  const info = guiaEmociones[tipo];
+  const cajaRespuesta = document.getElementById('caja-respuesta-emocion');
+  cajaRespuesta.style.display = 'block';
+  cajaRespuesta.style.borderLeftColor = info.color;
+  cajaRespuesta.textContent = info.texto;
 
-    // Leer en voz alta con síntesis de voz amigable
-    if ('speechSynthesis' in window) {
-      window.speechSynthesis.cancel();
-      const mensaje = new SpeechSynthesisUtterance(info.texto);
-      mensaje.lang = 'es-ES';
-      mensaje.rate = 0.85;
-      window.speechSynthesis.speak(mensaje);
-    }
+  // 4. Leer en voz alta con síntesis de voz amigable
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+    const mensaje = new SpeechSynthesisUtterance(info.texto);
+    mensaje.lang = 'es-ES';
+    mensaje.rate = 0.85;
+    window.speechSynthesis.speak(mensaje);
   }
+}
 
   function compartirConFamilia() {
     const titulo = "Crianza en dos mundos";
@@ -211,8 +215,6 @@
       window.open(`https://wa.me{mensajeWhatsApp}`, '_blank');
     }
   }
-
-
   </script>
 </body>
 </html>
