@@ -9,6 +9,9 @@
   <link rel="stylesheet" href="emociones.css">
 </head>
 <body>
+  <div id="aviso-instagram" class="aviso-redes">
+  💛 Para <strong>imprimir tus Historias Sociales</strong> y ver todas las animaciones, toca los <strong>3 puntos (•••)</strong> arriba a la derecha y elige <strong>"Abrir en el navegador"</strong>.
+  </div> 
 
   <!-- Contenedor principal que envuelve toda la experiencia visual -->
   <div class="pantalla-corporativa">
@@ -197,24 +200,46 @@ function seleccionarEmocion(boton, tipo) {
   }
 }
 
-  function compartirConFamilia() {
-    const titulo = "Crianza en dos mundos";
-    const texto = "Te comparto esta página con Herramientas para apoyar rutinas en casa:";
-    const url = window.location.href;
+async function compartirConFamilia() {
+  const titulo = "Crianza en dos mundos";
+  const texto = "Te comparto esta página con Herramientas para apoyar rutinas en casa:";
+  const url = window.location.href;
+  
+  const userAgent = navigator.userAgent || "";
+  const esInstagram = /Instagram/i.test(userAgent);
+  const esMovil = /Android|iPhone|iPad|iPod/i.test(userAgent);
 
-    // Si el celular soporta compartir nativo (WhatsApp, Instagram, Telegram, etc.)
-    if (navigator.share) {
-      navigator.share({
+  // 1. Si entra desde Instagram: copia el enlace directo para evitar bloqueos
+  if (esInstagram) {
+    try {
+      await navigator.clipboard.writeText(`${texto} ${url}`);
+      alert("¡Enlace copiado! 💛 Pégalo en un mensaje de WhatsApp o Instagram para compartirlo.");
+    } catch (err) {
+      prompt("Copia este enlace para compartir:", url);
+    }
+    return;
+  }
+
+  // 2. Si es un navegador móvil normal (Chrome/Safari): abre el menú nativo
+  if (esMovil && navigator.share) {
+    try {
+      await navigator.share({
         title: titulo,
         text: texto,
         url: url
-      }).catch(() => {});
-    } else {
-      // Respaldo directo a WhatsApp Web / App si se abre desde computadora
-      const mensajeWhatsApp = encodeURIComponent(`${texto} ${url}`);
-      window.open(`https://wa.me{mensajeWhatsApp}`, '_blank');
+      });
+      return;
+    } catch (error) {
+      if (error.name === 'AbortError') return;
     }
   }
+
+  // 3. Si es computador (PC/Mac): abre WhatsApp Web con el enlace corregido
+  const mensajeWhatsApp = encodeURIComponent(`${texto} ${url}`);
+  window.open(`https://whatsapp.com/?text={mensajeWhatsApp}`, '_blank');
+}
+
+  
   </script>
 </body>
 </html>

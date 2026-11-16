@@ -51,7 +51,7 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    height: 70px; /* Altura controlada para que no mueva el diseño inferior */
+    height: 100px; /* Altura controlada para que no mueva el diseño inferior */
     overflow: hidden;
 }
 
@@ -66,6 +66,9 @@
 .testimonio-item:nth-child(1) { animation-delay: 0s; }
 .testimonio-item:nth-child(2) { animation-delay: 5s; }
 .testimonio-item:nth-child(3) { animation-delay: 10s; }
+.testimonio-item:nth-child(4) { animation-delay: 15s; }
+.testimonio-item:nth-child(5) { animation-delay: 20s; }
+.testimonio-item:nth-child(6) { animation-delay: 25s; }
 
 @keyframes rotarTestimonios {
     0%, 5% { opacity: 0; transform: translateY(10px); }
@@ -78,4 +81,8 @@
 }
 .testimonio{
 	font-style: italic; color: #555555; font-size: 0.95rem; line-height: 1.5; margin: 0 0 8px 0;
+}
+
+.aviso-redes{
+   display: none; background: #fff3cd; color: #856404; padding: 12px; text-align: center; font-size: 13px; border-bottom: 2px solid #ffeeba; position: sticky; top: 0; z-index: 9999;
 }
