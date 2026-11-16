@@ -53,7 +53,7 @@
 			    <option value="comer" data-categoria="autonomia">🥪 Rutina para comer</option>	
 			    <option value="cubierto" data-categoria="autonomia">🍴 Rutina para el uso de cubiertos</option>
 			    <option value="bus" data-categoria="salidas">🚌 viajar en bus</option>	
-			    <option value="abordar un avion" data-categoria="salidas">✈️ viajar en avión</option>	
+			    <option value="avion" data-categoria="salidas">✈️ abordar un avión</option>	
 			    <option value="compras" data-categoria="salidas">🛍️ vamos de compras</option>	
 			    <!--   <option value="supermercado">👕 vamos al supermercado</option>	
 			    <option value="restaurant">👕 vamos a un restaurant</option>	
@@ -486,6 +486,7 @@ pasosActuales = [];
 indiceActivo = 0;
 mostrarPasoSeleccionado();
 }
+
 // Función de control de la impresora nativa
   function imprimirRutina() {
   if (pasosActuales.length === 0) {
@@ -493,7 +494,7 @@ mostrarPasoSeleccionado();
     return;
   }
 
-    const esInstagram = /Instagram/i.test(navigator.userAgent || "");
+  const esInstagram = /Instagram/i.test(navigator.userAgent || "");
 
   if (esInstagram) {
     alert(
@@ -510,6 +511,7 @@ mostrarPasoSeleccionado();
   const explicacion = txtExplicacion.value;
 
   const urlLogo = new URL('logo_pie.jpg', window.location.href).href;
+  const urlCss = new URL('impresion.css', window.location.href).href;
   // 1. Eliminar iframe anterior si existe
   const iframeViejo = document.getElementById('iframe-impresion');
   if (iframeViejo) iframeViejo.remove();
@@ -543,22 +545,38 @@ mostrarPasoSeleccionado();
     <head>
       <meta charset="UTF-8">
       <title>${tituloHistoria}</title>
-      <link rel="stylesheet" href="impresion.css">     
+      <link rel="stylesheet" href="${urlCss}">     
     </head>
     <body>
-      <div class="cabecera-impresion">
-        <div class="celda-logo">
-          <img src="${urlLogo}" alt="Logo" class="logo-impresion" onerror="this.parentElement.style.display='none'">
-        </div>
-        <div class="celda-texto">
-          <h2>${tituloHistoria}</h2>
-          <p class="explicacion">${explicacion}</p>
-        </div>
-      </div>
-      <div>${tarjetasHTML}</div>
+      <table class="tabla-impresion">
+        <thead>
+          <tr>
+            <td>
+              <div class="cabecera-impresion">
+                <div class="celda-logo">
+                  <img src="${urlLogo}" alt="Logo" class="logo-impresion" onerror="this.parentElement.style.display='none'">
+                </div>
+                <div class="celda-texto">
+                  <h2>${tituloHistoria}</h2>
+                  <p class="explicacion">${explicacion}</p>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="contenedor-tarjetas">${tarjetasHTML}</div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </body>
     </html>
   `);
+
+  
   doc.close();
 
   // 5. Esperar a que carguen todas las imágenes antes de lanzar la impresión
@@ -617,6 +635,7 @@ function filtrarRutinas(categoria, botonActivo) {
 
   // 3. Dejar seleccionado el texto inicial "-- Selecciona una opción --"
   select.selectedIndex = 0;
+  select.dispatchEvent(new Event('change'));
 }
 
   </script>
