@@ -493,6 +493,19 @@ mostrarPasoSeleccionado();
     return;
   }
 
+    const esInstagram = /Instagram/i.test(navigator.userAgent || "");
+
+  if (esInstagram) {
+    alert(
+      "💛 Instagram no permite imprimir directamente.\n\n" +
+      "Para guardar o imprimir tu Historia Social:\n" +
+      "1. Toca los 3 puntos (•••) en la esquina superior derecha.\n" +
+      "2. Selecciona 'Abrir en el navegador' (Chrome o Safari).\n" +
+      "3. Toca 'Guardar/Imprimir' nuevamente."
+    );
+    return;
+  }
+
   const tituloHistoria = selector.options[selector.selectedIndex].text;
   const explicacion = txtExplicacion.value;
 
